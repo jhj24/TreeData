@@ -1,0 +1,841 @@
+[
+  {
+    "children": [],
+    "isStaff": 0,
+    "name": "测试部门",
+    "PId": 0,
+    "id": 314
+  },
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "isStaff": 1,
+            "phone": "18538198806",
+            "name": "客服专用",
+            "PId": 255,
+            "id": 324,
+            "memberId": 1150
+          },
+          {
+            "isStaff": 1,
+            "phone": "18211670210",
+            "name": "邵蓓蓓",
+            "PId": 255,
+            "id": 325,
+            "memberId": 1151
+          },
+          {
+            "isStaff": 1,
+            "phone": "18339285615",
+            "name": "郭爱云",
+            "PId": 255,
+            "id": 326,
+            "memberId": 1152
+          },
+          {
+            "isStaff": 1,
+            "phone": "15638576177",
+            "name": "高兰兰",
+            "PId": 255,
+            "id": 327,
+            "memberId": 1153
+          },
+          {
+            "isStaff": 1,
+            "phone": "18790265650",
+            "name": "王娟",
+            "PId": 255,
+            "id": 377,
+            "memberId": 1244
+          }
+        ],
+        "isStaff": 0,
+        "name": "传统客服部",
+        "PId": 278,
+        "id": 255
+      },
+      {
+        "children": [
+          {
+            "isStaff": 1,
+            "phone": "18790312610",
+            "name": "史岳毅",
+            "PId": 254,
+            "id": 178,
+            "memberId": 959
+          },
+          {
+            "isStaff": 1,
+            "phone": "18768855933",
+            "name": "常勇进",
+            "PId": 254,
+            "id": 181,
+            "memberId": 962
+          },
+          {
+            "isStaff": 1,
+            "phone": "13140004027",
+            "name": "刘士奇",
+            "PId": 254,
+            "id": 194,
+            "memberId": 996
+          },
+          {
+            "isStaff": 1,
+            "phone": "15560171818",
+            "name": "李国防",
+            "PId": 254,
+            "id": 248,
+            "memberId": 1062
+          },
+          {
+            "isStaff": 1,
+            "phone": "18538321093",
+            "name": "魏烊",
+            "PId": 254,
+            "id": 267,
+            "memberId": 1091
+          },
+          {
+            "isStaff": 1,
+            "phone": "18236593093",
+            "name": "谢辉",
+            "PId": 254,
+            "id": 268,
+            "memberId": 1092
+          },
+          {
+            "isStaff": 1,
+            "phone": "13653839682",
+            "name": "吕凤好",
+            "PId": 254,
+            "id": 319,
+            "memberId": 1145
+          },
+          {
+            "isStaff": 1,
+            "phone": "15936216767",
+            "name": "张帆",
+            "PId": 254,
+            "id": 320,
+            "memberId": 1146
+          },
+          {
+            "isStaff": 1,
+            "phone": "13460200436",
+            "name": "简豪杰",
+            "PId": 254,
+            "id": 321,
+            "memberId": 1147
+          },
+          {
+            "isStaff": 1,
+            "phone": "18639777155",
+            "name": "张煜",
+            "PId": 254,
+            "id": 322,
+            "memberId": 1148
+          },
+          {
+            "isStaff": 1,
+            "phone": "15333801126",
+            "name": "张宁",
+            "PId": 254,
+            "id": 371,
+            "memberId": 1235
+          },
+          {
+            "isStaff": 1,
+            "phone": "15638220867",
+            "name": "康玉杰",
+            "PId": 254,
+            "id": 374,
+            "memberId": 1241
+          },
+          {
+            "isStaff": 1,
+            "phone": "13456805360",
+            "name": "常汝超",
+            "PId": 254,
+            "id": 385,
+            "memberId": 1295
+          },
+          {
+            "isStaff": 1,
+            "phone": "15036023570",
+            "name": "郭金昌",
+            "PId": 254,
+            "id": 500,
+            "memberId": 5963
+          },
+          {
+            "isStaff": 1,
+            "phone": "15538768737",
+            "name": "胡宽",
+            "PId": 254,
+            "id": 511,
+            "memberId": 5988
+          },
+          {
+            "isStaff": 1,
+            "phone": "15343850122",
+            "name": "贺怀志",
+            "PId": 254,
+            "id": 567,
+            "memberId": 6101
+          },
+          {
+            "isStaff": 1,
+            "phone": "18637151213",
+            "name": "张东辉",
+            "PId": 254,
+            "id": 569,
+            "memberId": 6103
+          },
+          {
+            "isStaff": 1,
+            "phone": "15836744116",
+            "name": "吴海元",
+            "PId": 254,
+            "id": 1320,
+            "memberId": 6873
+          },
+          {
+            "isStaff": 1,
+            "phone": "13623833298",
+            "name": "张世浩",
+            "PId": 254,
+            "id": 1402,
+            "memberId": 6978
+          }
+        ],
+        "isStaff": 0,
+        "name": "传统产创部",
+        "PId": 278,
+        "id": 254
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "isStaff": 1,
+                "phone": "15538158892",
+                "name": "马晓伟",
+                "PId": 226,
+                "id": 270,
+                "memberId": 1094
+              },
+              {
+                "isStaff": 1,
+                "phone": "18638582286",
+                "name": "王鹏飞",
+                "PId": 226,
+                "id": 328,
+                "memberId": 1154
+              },
+              {
+                "isStaff": 1,
+                "phone": "18637183381",
+                "name": "张战起",
+                "PId": 226,
+                "id": 329,
+                "memberId": 1155
+              },
+              {
+                "isStaff": 1,
+                "phone": "18503208088",
+                "name": "勾振杰",
+                "PId": 226,
+                "id": 331,
+                "memberId": 1157
+              },
+              {
+                "isStaff": 1,
+                "phone": "15238107985",
+                "name": "张怀松",
+                "PId": 226,
+                "id": 332,
+                "memberId": 1158
+              },
+              {
+                "isStaff": 1,
+                "phone": "18538188160",
+                "name": "李冰",
+                "PId": 226,
+                "id": 335,
+                "memberId": 1161
+              },
+              {
+                "isStaff": 1,
+                "phone": "18695908185",
+                "name": "陈自强",
+                "PId": 226,
+                "id": 372,
+                "memberId": 1239
+              },
+              {
+                "isStaff": 1,
+                "phone": "18686745393",
+                "name": "林强",
+                "PId": 226,
+                "id": 1273,
+                "memberId": 6818
+              }
+            ],
+            "isStaff": 0,
+            "name": "销售一组",
+            "PId": 224,
+            "id": 226
+          },
+          {
+            "children": [],
+            "isStaff": 0,
+            "name": "销售二组",
+            "PId": 224,
+            "id": 250
+          }
+        ],
+        "isStaff": 0,
+        "name": "传统销售部",
+        "PId": 278,
+        "id": 224
+      }
+    ],
+    "isStaff": 0,
+    "name": "传统组",
+    "PId": 0,
+    "id": 278
+  },
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "isStaff": 1,
+            "phone": "18638567578",
+            "name": "李颖坤",
+            "PId": 277,
+            "id": 306,
+            "memberId": 1130
+          },
+          {
+            "isStaff": 1,
+            "phone": "15236743958",
+            "name": "王冬婉",
+            "PId": 277,
+            "id": 468,
+            "memberId": 5903
+          }
+        ],
+        "isStaff": 0,
+        "name": "农机客服部",
+        "PId": 276,
+        "id": 277
+      },
+      {
+        "children": [
+          {
+            "isStaff": 1,
+            "phone": "18737176705",
+            "name": "凌茹",
+            "PId": 253,
+            "id": 277,
+            "memberId": 1101
+          },
+          {
+            "isStaff": 1,
+            "phone": "13673357895",
+            "name": "马岭亚",
+            "PId": 253,
+            "id": 278,
+            "memberId": 1102
+          },
+          {
+            "isStaff": 1,
+            "phone": "13653801277",
+            "name": "赵慧慧",
+            "PId": 253,
+            "id": 279,
+            "memberId": 1103
+          },
+          {
+            "isStaff": 1,
+            "phone": "18782238309",
+            "name": "李振方",
+            "PId": 253,
+            "id": 280,
+            "memberId": 1104
+          },
+          {
+            "isStaff": 1,
+            "phone": "18317894263",
+            "name": "王建明",
+            "PId": 253,
+            "id": 282,
+            "memberId": 1106
+          },
+          {
+            "isStaff": 1,
+            "phone": "15238326733",
+            "name": "陈素琴",
+            "PId": 253,
+            "id": 285,
+            "memberId": 1109
+          },
+          {
+            "isStaff": 1,
+            "phone": "15638166921",
+            "name": "林松",
+            "PId": 253,
+            "id": 286,
+            "memberId": 1110
+          },
+          {
+            "isStaff": 1,
+            "phone": "15093353039",
+            "name": "赵利利",
+            "PId": 253,
+            "id": 287,
+            "memberId": 1111
+          },
+          {
+            "isStaff": 1,
+            "phone": "18695895005",
+            "name": "潘帅帅",
+            "PId": 253,
+            "id": 291,
+            "memberId": 1115
+          },
+          {
+            "isStaff": 1,
+            "phone": "15093077061",
+            "name": "梁冬飞",
+            "PId": 253,
+            "id": 292,
+            "memberId": 1116
+          },
+          {
+            "isStaff": 1,
+            "phone": "18337166009",
+            "name": "张伊朋",
+            "PId": 253,
+            "id": 293,
+            "memberId": 1117
+          },
+          {
+            "isStaff": 1,
+            "phone": "17319234227",
+            "name": "赵晓亮",
+            "PId": 253,
+            "id": 295,
+            "memberId": 1119
+          },
+          {
+            "isStaff": 1,
+            "phone": "13521026340",
+            "name": "王平平",
+            "PId": 253,
+            "id": 297,
+            "memberId": 1121
+          },
+          {
+            "isStaff": 1,
+            "phone": "18638518819",
+            "name": "李磊",
+            "PId": 253,
+            "id": 379,
+            "memberId": 1266
+          },
+          {
+            "isStaff": 1,
+            "phone": "15738897440",
+            "name": "肖华东",
+            "PId": 253,
+            "id": 386,
+            "memberId": 1297
+          },
+          {
+            "isStaff": 1,
+            "phone": "17600112837",
+            "name": "梁东洋",
+            "PId": 253,
+            "id": 388,
+            "memberId": 1329
+          },
+          {
+            "isStaff": 1,
+            "phone": "15638411790",
+            "name": "侯广阔",
+            "PId": 253,
+            "id": 456,
+            "memberId": 2845
+          },
+          {
+            "isStaff": 1,
+            "phone": "18703635396",
+            "name": "陈莉娜",
+            "PId": 253,
+            "id": 457,
+            "memberId": 2847
+          },
+          {
+            "isStaff": 1,
+            "phone": "15537158631",
+            "name": "王小卫",
+            "PId": 253,
+            "id": 494,
+            "memberId": 5951
+          },
+          {
+            "isStaff": 1,
+            "phone": "15890689808",
+            "name": "何攀贵",
+            "PId": 253,
+            "id": 503,
+            "memberId": 5966
+          },
+          {
+            "isStaff": 1,
+            "phone": "17638166045",
+            "name": "杨飞凡",
+            "PId": 253,
+            "id": 525,
+            "memberId": 6027
+          },
+          {
+            "isStaff": 1,
+            "phone": "17638568624",
+            "name": "王锦奇",
+            "PId": 253,
+            "id": 542,
+            "memberId": 6065
+          },
+          {
+            "isStaff": 1,
+            "phone": "15237165132",
+            "name": "魏天恩",
+            "PId": 253,
+            "id": 568,
+            "memberId": 6102
+          },
+          {
+            "isStaff": 1,
+            "phone": "13837183257",
+            "name": "陈晓坛",
+            "PId": 253,
+            "id": 571,
+            "memberId": 6111
+          },
+          {
+            "isStaff": 1,
+            "phone": "15037152656",
+            "name": "马鑫",
+            "PId": 253,
+            "id": 1411,
+            "memberId": 6992
+          },
+          {
+            "isStaff": 1,
+            "phone": "18137950074",
+            "name": "张洪通",
+            "PId": 253,
+            "id": 1412,
+            "memberId": 6993
+          },
+          {
+            "isStaff": 1,
+            "phone": "18539718345",
+            "name": "张飞",
+            "PId": 253,
+            "id": 1427,
+            "memberId": 7020
+          },
+          {
+            "isStaff": 1,
+            "phone": "13298325215",
+            "name": "王馨然",
+            "PId": 253,
+            "id": 1428,
+            "memberId": 7021
+          }
+        ],
+        "isStaff": 0,
+        "name": "农机产创部",
+        "PId": 276,
+        "id": 253
+      },
+      {
+        "children": [
+          {
+            "isStaff": 1,
+            "phone": "15838123130",
+            "name": "崔桂姣",
+            "PId": 252,
+            "id": 308,
+            "memberId": 1132
+          },
+          {
+            "isStaff": 1,
+            "phone": "15138947630",
+            "name": "裴圆洁",
+            "PId": 252,
+            "id": 310,
+            "memberId": 1134
+          },
+          {
+            "isStaff": 1,
+            "phone": "18348081685",
+            "name": "谢曼曼",
+            "PId": 252,
+            "id": 311,
+            "memberId": 1135
+          },
+          {
+            "isStaff": 1,
+            "phone": "15838269872",
+            "name": "赵丽",
+            "PId": 252,
+            "id": 312,
+            "memberId": 1136
+          }
+        ],
+        "isStaff": 0,
+        "name": "农机编辑部",
+        "PId": 276,
+        "id": 252
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "isStaff": 1,
+                "phone": "13693092997",
+                "name": "吴海亮",
+                "PId": 280,
+                "id": 304,
+                "memberId": 1128
+              },
+              {
+                "isStaff": 1,
+                "phone": "18600902118",
+                "name": "王璐",
+                "PId": 280,
+                "id": 305,
+                "memberId": 1129
+              },
+              {
+                "isStaff": 1,
+                "phone": "13552206662",
+                "name": "党东民",
+                "PId": 280,
+                "id": 313,
+                "memberId": 1137
+              },
+              {
+                "isStaff": 1,
+                "phone": "15810517610",
+                "name": "陈佳利",
+                "PId": 280,
+                "id": 314,
+                "memberId": 1138
+              },
+              {
+                "isStaff": 1,
+                "phone": "13331185576",
+                "name": "袁玉菲",
+                "PId": 280,
+                "id": 376,
+                "memberId": 1243
+              },
+              {
+                "isStaff": 1,
+                "phone": "18600970521",
+                "name": "张行",
+                "PId": 280,
+                "id": 422,
+                "memberId": 1401
+              }
+            ],
+            "isStaff": 0,
+            "name": "农机销售二部",
+            "PId": 251,
+            "id": 280
+          },
+          {
+            "children": [
+              {
+                "isStaff": 1,
+                "phone": "18637121860",
+                "name": "王永振",
+                "PId": 279,
+                "id": 300,
+                "memberId": 1124
+              },
+              {
+                "isStaff": 1,
+                "phone": "18656999393",
+                "name": "张宗山",
+                "PId": 279,
+                "id": 301,
+                "memberId": 1125
+              },
+              {
+                "isStaff": 1,
+                "phone": "18511895056",
+                "name": "刘立峰",
+                "PId": 279,
+                "id": 302,
+                "memberId": 1126
+              },
+              {
+                "isStaff": 1,
+                "phone": "17698095351",
+                "name": "靳海青",
+                "PId": 279,
+                "id": 303,
+                "memberId": 1127
+              },
+              {
+                "isStaff": 1,
+                "phone": "18637185277",
+                "name": "王栋",
+                "PId": 279,
+                "id": 373,
+                "memberId": 1240
+              }
+            ],
+            "isStaff": 0,
+            "name": "农机销售一部",
+            "PId": 251,
+            "id": 279
+          }
+        ],
+        "isStaff": 0,
+        "name": "农机销售部",
+        "PId": 276,
+        "id": 251
+      }
+    ],
+    "isStaff": 0,
+    "name": "农机组",
+    "PId": 0,
+    "id": 276
+  },
+  {
+    "children": [
+      {
+        "isStaff": 1,
+        "phone": "15972289691",
+        "name": "文嫣",
+        "PId": 256,
+        "id": 271,
+        "memberId": 1095
+      },
+      {
+        "isStaff": 1,
+        "phone": "13949065977",
+        "name": "乔天堑",
+        "PId": 256,
+        "id": 272,
+        "memberId": 1096
+      },
+      {
+        "isStaff": 1,
+        "phone": "15303719199",
+        "name": "王焕",
+        "PId": 256,
+        "id": 273,
+        "memberId": 1097
+      }
+    ],
+    "isStaff": 0,
+    "name": "财务部",
+    "PId": 0,
+    "id": 256
+  },
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "isStaff": 1,
+            "phone": "18603718778",
+            "name": "总管理员",
+            "PId": 273,
+            "id": 98,
+            "memberId": 754
+          },
+          {
+            "isStaff": 1,
+            "phone": "18603717000",
+            "name": "徐芹",
+            "PId": 273,
+            "id": 264,
+            "memberId": 1086
+          },
+          {
+            "isStaff": 1,
+            "phone": "13811588648",
+            "name": "张建",
+            "PId": 273,
+            "id": 274,
+            "memberId": 1098
+          },
+          {
+            "isStaff": 1,
+            "phone": "18612809797",
+            "name": "王宏斌",
+            "PId": 273,
+            "id": 506,
+            "memberId": 5983
+          }
+        ],
+        "isStaff": 0,
+        "name": "公司高管",
+        "PId": 181,
+        "id": 273
+      },
+      {
+        "children": [
+          {
+            "isStaff": 1,
+            "phone": "18537115803",
+            "name": "任红鸣",
+            "PId": 272,
+            "id": 265,
+            "memberId": 1089
+          },
+          {
+            "isStaff": 1,
+            "phone": "18614071226",
+            "name": "王婧",
+            "PId": 272,
+            "id": 275,
+            "memberId": 1099
+          },
+          {
+            "isStaff": 1,
+            "phone": "18539998897",
+            "name": "杨瑞",
+            "PId": 272,
+            "id": 323,
+            "memberId": 1149
+          }
+        ],
+        "isStaff": 0,
+        "name": "综合部",
+        "PId": 181,
+        "id": 272
+      }
+    ],
+    "isStaff": 0,
+    "name": "总经办",
+    "PId": 0,
+    "id": 181
+  }
+]
+

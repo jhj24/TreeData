@@ -1,0 +1,226 @@
+[
+        {
+            "org": 202,
+            "pid": 0,
+            "sort": 5,
+            "baseChannelgroupList": [],
+            "name": "河南地区",
+            "id": 114,
+            "pids": "114,",
+            "levels": 1
+        },
+        {
+            "org": 202,
+            "pid": 0,
+            "sort": 4,
+            "baseChannelgroupList": [],
+            "name": "联通公司",
+            "id": 106,
+            "pids": "106,",
+            "levels": 1
+        },
+        {
+            "org": 202,
+            "pid": 0,
+            "sort": 1,
+            "baseChannelgroupList": [
+                {
+                    "org": 202,
+                    "pid": 124,
+                    "sort": 1,
+                    "baseChannelgroupList": [],
+                    "name": "沧州",
+                    "id": 139,
+                    "pids": "124,139,",
+                    "levels": 2
+                },
+                {
+                    "org": 202,
+                    "pid": 124,
+                    "sort": 1,
+                    "baseChannelgroupList": [],
+                    "name": "邯郸",
+                    "id": 138,
+                    "pids": "124,138,",
+                    "levels": 2
+                },
+                {
+                    "org": 202,
+                    "pid": 124,
+                    "sort": 1,
+                    "baseChannelgroupList": [],
+                    "name": "邢台",
+                    "id": 137,
+                    "pids": "124,137,",
+                    "levels": 2
+                },
+                {
+                    "org": 202,
+                    "pid": 124,
+                    "sort": 1,
+                    "baseChannelgroupList": [],
+                    "name": "衡水",
+                    "id": 136,
+                    "pids": "124,136,",
+                    "levels": 2
+                },
+                {
+                    "org": 202,
+                    "pid": 124,
+                    "sort": 1,
+                    "baseChannelgroupList": [],
+                    "name": "秦皇岛",
+                    "id": 135,
+                    "pids": "124,135,",
+                    "levels": 2
+                },
+                {
+                    "org": 202,
+                    "pid": 124,
+                    "sort": 1,
+                    "baseChannelgroupList": [],
+                    "name": "唐山",
+                    "id": 131,
+                    "pids": "124,131,",
+                    "levels": 2
+                },
+                {
+                    "org": 202,
+                    "pid": 124,
+                    "sort": 1,
+                    "baseChannelgroupList": [],
+                    "name": "承德",
+                    "id": 130,
+                    "pids": "124,130,",
+                    "levels": 2
+                },
+                {
+                    "org": 202,
+                    "pid": 124,
+                    "sort": 1,
+                    "baseChannelgroupList": [],
+                    "name": "廊坊",
+                    "id": 129,
+                    "pids": "124,129,",
+                    "levels": 2
+                },
+                {
+                    "org": 202,
+                    "pid": 124,
+                    "sort": 1,
+                    "baseChannelgroupList": [],
+                    "name": "张家口",
+                    "id": 128,
+                    "pids": "124,128,",
+                    "levels": 2
+                },
+                {
+                    "org": 202,
+                    "pid": 124,
+                    "sort": 1,
+                    "baseChannelgroupList": [],
+                    "name": "保定",
+                    "id": 127,
+                    "pids": "124,127,",
+                    "levels": 2
+                },
+                {
+                    "org": 202,
+                    "pid": 124,
+                    "sort": 1,
+                    "baseChannelgroupList": [
+                        {
+                            "org": 202,
+                            "pid": 126,
+                            "sort": 1,
+                            "baseChannelgroupList": [],
+                            "name": "鹿泉",
+                            "id": 142,
+                            "pids": "124,126,142,",
+                            "levels": 3
+                        },
+                        {
+                            "org": 202,
+                            "pid": 126,
+                            "sort": 1,
+                            "baseChannelgroupList": [],
+                            "name": "新乐",
+                            "id": 141,
+                            "pids": "124,126,141,",
+                            "levels": 3
+                        },
+                        {
+                            "org": 202,
+                            "pid": 126,
+                            "sort": 1,
+                            "baseChannelgroupList": [],
+                            "name": "正定",
+                            "id": 140,
+                            "pids": "124,126,140,",
+                            "levels": 3
+                        }
+                    ],
+                    "name": "石家庄",
+                    "id": 126,
+                    "pids": "124,126,",
+                    "levels": 2
+                }
+            ],
+            "name": "河北区域",
+            "id": 124,
+            "pids": "124,",
+            "levels": 1
+        },
+        {
+            "org": 202,
+            "pid": 0,
+            "sort": 1,
+            "baseChannelgroupList": [
+                {
+                    "org": 202,
+                    "pid": 104,
+                    "sort": 1,
+                    "baseChannelgroupList": [],
+                    "name": "麦香鸡",
+                    "id": 105,
+                    "pids": "104,105,",
+                    "levels": 2
+                }
+            ],
+            "name": "麦当劳",
+            "id": 104,
+            "pids": "104,",
+            "levels": 1
+        },
+        {
+            "org": 202,
+            "pid": 0,
+            "sort": 1,
+            "baseChannelgroupList": [],
+            "name": "超级VIP",
+            "id": 96,
+            "pids": "96,",
+            "levels": 1
+        },
+        {
+            "org": 202,
+            "pid": 0,
+            "sort": 1,
+            "baseChannelgroupList": [
+                {
+                    "org": 202,
+                    "pid": 86,
+                    "sort": 1,
+                    "baseChannelgroupList": [],
+                    "name": "会员一组",
+                    "id": 87,
+                    "pids": "86,87,",
+                    "levels": 2
+                }
+            ],
+            "name": "董事会",
+            "id": 86,
+            "pids": "86,",
+            "levels": 1
+        }
+    ]

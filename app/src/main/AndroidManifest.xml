@@ -17,15 +17,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".person.PersonSingleTreeActivity"
+            android:name=".singleselected.person.PersonTreeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".position.PositionSingleTreeActivity"
+            android:name=".singleselected.channel.ChannelTreeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".multi.MultiActivity"
+            android:name=".multi.MultiTreeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:windowSoftInputMode="adjustPan|stateHidden" />
     </application>

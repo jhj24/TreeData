@@ -77,7 +77,7 @@ public class StaffBean extends BaseTree<StaffBean>{
         this.UserInfo = UserInfo;
     }
 
-    public List<?> getChilds() {
+    public List<StaffBean> getChilds() {
         return childs;
     }
 

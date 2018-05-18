@@ -3,8 +3,8 @@ package com.jhj.treedata
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.jhj.treedata.bean.Bean
-import com.jhj.treedata.bean.PositionBean
+import com.jhj.treedata.bean.PersonalTreeBean
+import com.jhj.treedata.bean.ChannelTreeBean
 import com.jhj.treedata.bean.StaffBean
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -16,25 +16,25 @@ object TreeDataUtil {
     /**
      * 获取省市县信息
      */
-    fun getAreaList(context: Context): List<Bean> {
-        val inputStream = context.resources.assets.open("treedata.json")
+    fun getAreaList(context: Context): List<PersonalTreeBean> {
+        val inputStream = context.resources.assets.open("stafftree.json")
         val text = inputStream.use {
             val buf = BufferedReader(InputStreamReader(inputStream, "utf-8"))
             buf.readText()
         }
-        return Gson().fromJson(text, object : TypeToken<List<Bean>>() {}.type)
+        return Gson().fromJson(text, object : TypeToken<List<PersonalTreeBean>>() {}.type)
     }
 
     /**
      * 获取客户信息
      */
-    fun getChannelGroup(context: Context): List<PositionBean> {
+    fun getChannelGroup(context: Context): List<ChannelTreeBean> {
         val inputStream = context.resources.assets.open("channelgroup.json")
         val text = inputStream.use {
             val buf = BufferedReader(InputStreamReader(inputStream, "utf-8"))
             buf.readText()
         }
-        return Gson().fromJson(text, object : TypeToken<List<PositionBean>>() {}.type)
+        return Gson().fromJson(text, object : TypeToken<List<ChannelTreeBean>>() {}.type)
     }
 
     fun getStaffTree(context: Context): List<StaffBean> {

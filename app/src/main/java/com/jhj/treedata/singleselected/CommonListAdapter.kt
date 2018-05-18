@@ -1,4 +1,4 @@
-package com.jhj.treedata.position
+package com.jhj.treedata.singleselected
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -12,8 +12,7 @@ import kotlinx.android.synthetic.main.layout_multi_tree_node.view.*
 /**
  * Created by jhj on 17-9-8.
  */
-class CommonTreeListAdapter<T : IBaseTree<T>> : BaseSingleListAdapter<T,CommonTreeListAdapter.ItemViewHolder>() {
-
+class CommonListAdapter<T : IBaseTree<T>> : BaseSingleListAdapter<T, CommonListAdapter.ItemViewHolder>() {
 
 
     override fun onBindItemHolder(holder: ItemViewHolder, data: T, position: Int) {
@@ -31,13 +30,17 @@ class CommonTreeListAdapter<T : IBaseTree<T>> : BaseSingleListAdapter<T,CommonTr
     }
 
 
-
     override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent?.context)
         return ItemViewHolder(inflater.inflate(R.layout.layout_single_tree_node, parent, false))
     }
 
-    class ItemViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-
+    inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        init {
+            itemView.setOnClickListener {
+                val bean = itemView.tag as T
+                itemViewOnClick(bean)
+            }
+        }
     }
 }

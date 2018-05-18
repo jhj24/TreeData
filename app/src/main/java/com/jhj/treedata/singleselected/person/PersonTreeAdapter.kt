@@ -1,4 +1,4 @@
-package com.jhj.treedata.person
+package com.jhj.treedata.singleselected.person
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.jhj.datalibrary.tree.single.SingleTreeAdapter
 import com.jhj.treedata.R
-import com.jhj.treedata.bean.Bean
+import com.jhj.treedata.bean.PersonalTreeBean
 import kotlinx.android.synthetic.main.layout_single_tree_node.view.*
 
 /**
  *
  * Created by jhj on 17-9-22.
  */
-class PersonSingleTreeAdapter(private val cont: Context) : SingleTreeAdapter<Bean, PersonSingleTreeAdapter.ItemViewHolder>() {
+class PersonTreeAdapter(private val cont: Context) : SingleTreeAdapter<PersonalTreeBean, PersonTreeAdapter.ItemViewHolder>() {
 
     override val context: Context
         get() = cont
@@ -36,7 +36,7 @@ class PersonSingleTreeAdapter(private val cont: Context) : SingleTreeAdapter<Bea
     }
 
 
-    override fun onBindItemViewHolder(holder: ItemViewHolder?, data: Bean, position: Int) {
+    override fun onBindItemViewHolder(holder: ItemViewHolder?, data: PersonalTreeBean, position: Int) {
         holder?.itemView?.let {
             it.tv_name.text = data.name
             if (data.isRoot) {
@@ -58,7 +58,7 @@ class PersonSingleTreeAdapter(private val cont: Context) : SingleTreeAdapter<Bea
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
             itemView.setOnClickListener {
-                val bean = itemView.tag as Bean
+                val bean = itemView.tag as PersonalTreeBean
                 itemViewOnClick(bean)
             }
         }

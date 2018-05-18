@@ -9,15 +9,12 @@ import java.util.List;
  * Created by jhj on 17-9-8.
  */
 
-public class Bean extends BaseTree<Bean> {
+public class PersonalTreeBean extends BaseTree<PersonalTreeBean> {
 
     public int id;
     public String name;
-    public List<Bean> children;
+    public List<PersonalTreeBean> children;
     public int isStaff;
-    public String phone;
-    public int PId;
-    public int memberId;
 
     @Override
     public String getId() {
@@ -30,7 +27,7 @@ public class Bean extends BaseTree<Bean> {
     }
 
     @Override
-    public List<Bean> getChildren() {
+    public List<PersonalTreeBean> getChildren() {
         return children;
     }
 

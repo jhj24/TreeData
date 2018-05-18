@@ -1,4 +1,4 @@
-package com.jhj.treedata.position
+package com.jhj.treedata.singleselected.channel
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.layout_single_tree_node.view.*
 /**
  * Created by jhj on 17-9-22.
  */
-class PositionSingleTreeAdapter<T : IBaseTree<T>>(private val cont: Context) : BaseSingleTreeAdapter<T, PositionSingleTreeAdapter<T>.ItemViewHolder>() {
+class ChannelTreeAdapter<T : IBaseTree<T>>(private val cont: Context) : BaseSingleTreeAdapter<T, ChannelTreeAdapter.ItemViewHolder>() {
     override fun onBindItemHolder(holder: ItemViewHolder?, data: T, position: Int) {
         holder?.itemView?.let {
             it.tv_name.text = data.name

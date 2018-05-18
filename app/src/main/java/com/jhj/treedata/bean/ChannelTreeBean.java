@@ -9,13 +9,13 @@ import java.util.List;
  * Created by jhj on 17-9-7.
  */
 
-public class PositionBean extends BaseTree<PositionBean> {
+public class ChannelTreeBean extends BaseTree<ChannelTreeBean> {
 
     private int id;
     private int pid;
     private int org;
     private int sort;
-    private List<PositionBean> baseChannelgroupList;
+    private List<ChannelTreeBean> baseChannelgroupList;
     private String name;
     private String pids;
     private int levels;
@@ -80,7 +80,7 @@ public class PositionBean extends BaseTree<PositionBean> {
     }
 
     @Override
-    public List<PositionBean> getChildren() {
+    public List<ChannelTreeBean> getChildren() {
         return baseChannelgroupList;
     }
 
@@ -89,11 +89,11 @@ public class PositionBean extends BaseTree<PositionBean> {
         return !(baseChannelgroupList == null || baseChannelgroupList.size() == 0);
     }
 
-    public List<PositionBean> getBaseChannelgroupList() {
+    public List<ChannelTreeBean> getBaseChannelgroupList() {
         return baseChannelgroupList;
     }
 
-    public void setBaseChannelgroupList(List<PositionBean> baseChannelgroupList) {
+    public void setBaseChannelgroupList(List<ChannelTreeBean> baseChannelgroupList) {
         this.baseChannelgroupList = baseChannelgroupList;
     }
 }

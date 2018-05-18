@@ -1,4 +1,4 @@
-package com.jhj.treedata.person
+package com.jhj.treedata.singleselected.person
 
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
@@ -10,27 +10,28 @@ import com.jhj.datalibrary.tree.single.BaseSingleTreeActivity
 import com.jhj.datalibrary.tree.single.BaseSingleTreeAdapter
 import com.jhj.treedata.R
 import com.jhj.treedata.TreeDataUtil
-import com.jhj.treedata.bean.Bean
-import com.jhj.treedata.position.CommonTreeListAdapter
+import com.jhj.treedata.bean.PersonalTreeBean
+import com.jhj.treedata.singleselected.CommonListAdapter
 import kotlinx.android.synthetic.main.layout_top_bar.view.*
 import java.util.*
 
 /**
+ * 单选树
  * Created by jhj on 17-9-6.
  */
-class PersonSingleTreeActivity : BaseSingleTreeActivity<Bean>() {
+class PersonTreeActivity : BaseSingleTreeActivity<PersonalTreeBean>() {
 
-    override val adapter: BaseSingleTreeAdapter<Bean, out RecyclerView.ViewHolder>
-        get() = PersonSingleTreeAdapter(this)
+    override val adapter: BaseSingleTreeAdapter<PersonalTreeBean, out RecyclerView.ViewHolder>
+        get() = PersonTreeAdapter(this)
 
-    override val mAdapter: BaseSingleListAdapter<Bean, out RecyclerView.ViewHolder>
-        get() = CommonTreeListAdapter()
+    override val mAdapter: BaseSingleListAdapter<PersonalTreeBean, out RecyclerView.ViewHolder>
+        get() = CommonListAdapter()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val datalist = TreeDataUtil.getAreaList(this)
-        initDataList(datalist as ArrayList<Bean>)
+        initDataList(datalist as ArrayList<PersonalTreeBean>)
         initTopBar(R.layout.layout_top_bar, object : OnCustomTopbarListener {
             override fun onLayout(view: View) {
                 view.topBar_back.setOnClickListener { finish() }
@@ -39,7 +40,7 @@ class PersonSingleTreeActivity : BaseSingleTreeActivity<Bean>() {
                 view.topBar_right_button.setOnClickListener {
                     val data = getCheckedItem()
                     if (data == null) {
-                        Toast.makeText(this@PersonSingleTreeActivity, "请选择员工", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@PersonTreeActivity, "请选择员工", Toast.LENGTH_SHORT).show()
                         return@setOnClickListener
                     }
                     setResult(RESULT_OK, intent.putExtra("data", data))

@@ -43,6 +43,7 @@ class StaffTreeListAdapter(val mContext: Context) : BaseSingleListAdapter<StaffT
         init {
             itemView.setOnClickListener {
                 val bean = itemView.tag as StaffTreeBean
+                itemViewOnClick(bean)
                 val intent = Intent(Intent.ACTION_DIAL)
                 val url = Uri.parse("tel:" + bean.phone)
                 intent.data = url

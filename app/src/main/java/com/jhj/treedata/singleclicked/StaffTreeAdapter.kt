@@ -68,7 +68,8 @@ class StaffTreeAdapter(val mContext: Context) : BaseSingleTreeAdapter<StaffTreeB
         init {
             itemView.setOnClickListener {
                 val bean = itemView.tag as StaffTreeBean
-                if (!bean.isRoot){
+                itemViewOnClick(bean)
+                if (!bean.isRoot) {
                     val intent = Intent(Intent.ACTION_DIAL)
                     val url = Uri.parse("tel:" + bean.phone)
                     intent.data = url

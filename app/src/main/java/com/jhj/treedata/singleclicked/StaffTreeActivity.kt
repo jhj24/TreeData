@@ -17,15 +17,16 @@ import java.util.ArrayList
 class StaffTreeActivity : BaseSingleTreeActivity<StaffTreeBean>() {
 
     override val adapter: BaseSingleTreeAdapter<StaffTreeBean, out RecyclerView.ViewHolder>
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+        get() = StaffTreeAdapter(this)
     override val mAdapter: BaseSingleListAdapter<StaffTreeBean, out RecyclerView.ViewHolder>
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+        get() = StaffTreeListAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        val list = ArrayList<StaffTreeBean>()
         val staff = TreeDataUtil.getStaffTree(this)
-
+        val staffTree = parseTreeData(staff, list)
+        initDataList(staffTree)
 
     }
 

@@ -1,4 +1,4 @@
-package com.jhj.datalibrary.multi
+package com.jhj.datalibrary.tree.multi
 
 import android.app.Activity
 import android.os.Bundle
@@ -6,97 +6,71 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import com.jhj.datalibrary.IBaseTree
+import com.jhj.datalibrary.model.IBaseTree
+import com.jhj.datalibrary.interfaces.OnCustomTopbarListener
 import com.jhj.datalibrary.R
-import com.jhj.datalibrary.TreeDealUtil
+import com.jhj.datalibrary.utils.TreeDealUtil
 import com.jhj.decodelibrary.CharacterUtil
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_base_tree.*
 import kotlinx.android.synthetic.main.layout_search_input_bar.*
-import kotlinx.android.synthetic.main.layout_top_bar.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
- * 树型数据多选
+ * 树型数据多选，基础Activity
  * Created by jhj on 17-9-12.
  */
 abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
     companion object {
-        val SELECTED_ITEM = "select_item"
-        val RETURN_DATA = "return_data"
+        val SELECTED_DATA = "selected_data" //进入该界面时，设置选中的 item
     }
 
-    abstract val title: String
     abstract val adapter: BaseMultiTreeAdapter<T, out RecyclerView.ViewHolder>
-    abstract val mAdapter: BaseMultiListAdapter<T>
-    abstract val dataList: ArrayList<T>
+    abstract val mAdapter: BaseMultiListAdapter<T, out RecyclerView.ViewHolder>
 
     lateinit var treeAdapter: BaseMultiTreeAdapter<T, out RecyclerView.ViewHolder>
-    lateinit var listAdapter: BaseMultiListAdapter<T>
+    lateinit var listAdapter: BaseMultiListAdapter<T, out RecyclerView.ViewHolder>
 
     val list: ArrayList<T> = arrayListOf()
     private var selectedItemList: ArrayList<T>? = null
     private lateinit var character: CharacterUtil
+    private lateinit var dataList: ArrayList<T>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base_tree)
+        initParams()
         treeAdapter = adapter
         listAdapter = mAdapter
         character = CharacterUtil.getInstance(this)
-        selectedItemList = intent.getSerializableExtra(RETURN_DATA) as? ArrayList<T>
+        selectedItemList = intent.getSerializableExtra(SELECTED_DATA) as? ArrayList<T>
         searchBarMask.setOnTouchListener(keyboardState)
 
-        initParams()
-
-        topBar_back.setOnClickListener { finish() }
-        topBar_title.text = title
-        topBar_right_button.visibility = View.VISIBLE
-        topBar_right_button.text = "确认"
-        topBar_right_button.setOnClickListener { onItemSelected() }
         recyclerView.adapter = treeAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         rv_search.adapter = listAdapter
         rv_search.layoutManager = LinearLayoutManager(this)
-
-
-        initData()
-    }
-
-
-    private fun onItemSelected() {
-        val list: ArrayList<T> = arrayListOf()
-        getSelectedItem(dataList, list)
-        if (list.isEmpty()) {
-            Toast.makeText(this, "请选择" + title, Toast.LENGTH_SHORT).show()
-            return
-        }
-        setResult(RESULT_OK, intent.putExtra(SELECTED_ITEM, list))
-        finish()
     }
 
     /**
-     * 获取所有被选中的item
+     * 对外公开方法，设置标题
      */
-    private fun getSelectedItem(dataList: List<T>, list: ArrayList<T>) {
-        dataList.forEach { data ->
-            if (data.isRoot && data.children.isNotEmpty()) {
-                getSelectedItem(data.children, list)
-            }
-            if (!data.isRoot && data.isChecked && list.indexOf(data) == -1) {
-                list.add(data)
-            }
-        }
+    fun initTopBar(resResource: Int, listener: OnCustomTopbarListener) {
+        val view = LayoutInflater.from(this).inflate(resResource, layout_topBar)
+        listener.onLayout(view)
     }
 
 
-    private fun initData() {
+    fun initDataList(dataList: ArrayList<T>) {
+        this.dataList = dataList
         Observable
                 .create<ArrayList<T>> {
                     getAllNodeItem(dataList, list)
@@ -112,6 +86,28 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
                 }
 
     }
+
+
+    fun getSelectedItems(): ArrayList<T> {
+        val list: ArrayList<T> = arrayListOf()
+        parseSelectedItem(dataList, list)
+        return list
+    }
+
+    /**
+     * 获取所有被选中的item
+     */
+    private fun parseSelectedItem(dataList: List<T>, list: ArrayList<T>) {
+        dataList.forEach { data ->
+            if (data.isRoot && data.children.isNotEmpty()) {
+                parseSelectedItem(data.children, list)
+            }
+            if (!data.isRoot && data.isChecked && list.indexOf(data) == -1) {
+                list.add(data)
+            }
+        }
+    }
+
 
     /**
      * 递归遍历列表,对列表的name进行处理,并对list排序
@@ -163,7 +159,7 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
         return false
     }
 
-    private val keyboardState = View.OnTouchListener { p0, p1 ->
+    private val keyboardState = View.OnTouchListener { _, _ ->
         searchBarMask.visibility = View.GONE
         et_search.addTextChangedListener(textChangedListener)
         var inputManager: InputMethodManager? = null
@@ -171,14 +167,14 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
             inputManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
             inputManager.showSoftInput(et_search, 0)
         }
-        recyclerView.setOnTouchListener { view, motionEvent ->
+        recyclerView.setOnTouchListener { _, _ ->
             (inputManager as InputMethodManager).hideSoftInputFromWindow(et_search.windowToken, 0)
             if (et_search.text.isNullOrBlank()) {
                 searchBarMask.visibility = View.VISIBLE
             }
             false
         }
-        rv_search.setOnTouchListener { view, motionEvent ->
+        rv_search.setOnTouchListener { _, _ ->
             (inputManager as InputMethodManager).hideSoftInputFromWindow(et_search.windowToken, 0)
             false
         }

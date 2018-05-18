@@ -5,13 +5,14 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.jhj.treedata.bean.Bean
 import com.jhj.treedata.bean.PositionBean
+import com.jhj.treedata.bean.StaffBean
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
 /**
  * Created by jhj on 17-9-4.
  */
-object DataUtil {
+object TreeDataUtil {
     /**
      * 获取省市县信息
      */
@@ -34,5 +35,14 @@ object DataUtil {
             buf.readText()
         }
         return Gson().fromJson(text, object : TypeToken<List<PositionBean>>() {}.type)
+    }
+
+    fun getStaffTree(context: Context): List<StaffBean> {
+        val inputStream = context.resources.assets.open("channelgroup.json")
+        val text = inputStream.use {
+            val buf = BufferedReader(InputStreamReader(inputStream, "utf-8"))
+            buf.readText()
+        }
+        return Gson().fromJson(text, object : TypeToken<List<StaffBean>>() {}.type)
     }
 }

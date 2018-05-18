@@ -1,11 +1,11 @@
-package com.jhj.datalibrary.single
+package com.jhj.datalibrary.tree.single
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import android.widget.Toast
-import com.jhj.datalibrary.IBaseTree
-import com.jhj.datalibrary.TreeDealUtil
+import com.jhj.datalibrary.model.IBaseTree
+import com.jhj.datalibrary.utils.TreeDealUtil
 import java.util.*
 
 /**
@@ -28,6 +28,9 @@ abstract class BaseSingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
     override fun getItemCount(): Int = dataList.size
 
 
+    /**
+     * 当　item　为根节点时。type　为１
+     */
     override fun getItemViewType(position: Int): Int {
         return if (dataList[position].isRoot) {
             1
@@ -40,15 +43,16 @@ abstract class BaseSingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
             onCreateItemHolder(parent, viewType)
 
     override final fun onBindViewHolder(holder: H, position: Int) {
-        holder?.itemView?.tag = dataList[position]
-        onBindItemHolder(holder, dataList, position)
+        val data = dataList[position]
+        holder.itemView?.tag = data
+        onBindItemHolder(holder, data, position)
     }
 
-    abstract fun onBindItemHolder(holder: H?, dataList: MutableList<T>, position: Int)
+    abstract fun onBindItemHolder(holder: H?, data: T, position: Int)
     abstract fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): H
 
     /**
-     * 对外公开方法，设置itemView点击时间
+     * 对外公开方法，设置itemView点击事件，（树型数据是打开，关闭还是选择）
      */
     fun itemViewOnClick(bean: T) {
         if (bean.isRoot) {

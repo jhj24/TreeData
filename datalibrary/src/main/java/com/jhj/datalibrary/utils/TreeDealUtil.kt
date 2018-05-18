@@ -1,9 +1,10 @@
-package com.jhj.datalibrary
+package com.jhj.datalibrary.utils
 
+import com.jhj.datalibrary.model.IBaseTree
 import java.util.*
 
 /**
-// * 树型数据处理：排序
+ * 树型数据处理：排序、筛选
  * Created by jhj on 17-9-7.
  */
 object TreeDealUtil {

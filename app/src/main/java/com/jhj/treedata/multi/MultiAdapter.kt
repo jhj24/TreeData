@@ -5,16 +5,16 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.jhj.datalibrary.multi.BaseMultiTreeAdapter
+import com.jhj.datalibrary.tree.multi.BaseMultiTreeAdapter
 import com.jhj.treedata.R
 import com.jhj.treedata.bean.Bean
 import kotlinx.android.synthetic.main.layout_multi_tree_node.view.*
-import java.util.*
 
 /**
  * Created by jhj on 17-9-19.
  */
 class MultiAdapter(private val cont: Context) : BaseMultiTreeAdapter<Bean, MultiAdapter.ItemViewHolder>() {
+
 
     override val context: Context
         get() = cont
@@ -31,14 +31,13 @@ class MultiAdapter(private val cont: Context) : BaseMultiTreeAdapter<Bean, Multi
         }
     }
 
-    override fun onBindItemHolder(holder: ItemViewHolder, dataList: ArrayList<Bean>, position: Int) {
-        val bean = dataList[position]
+    override fun onBindItemHolder(holder: ItemViewHolder, data: Bean, position: Int) {
         with(holder.itemView) {
-            tv_name.text = bean.name
-            if (selectedItem?.name == bean.name && selectedItem?.id == bean.id) {
-                bean.isChecked = true
+            tv_name.text = data.name
+            if (selectedItem?.name == data.name && selectedItem?.id == data.id) {
+                data.isChecked = true
             }
-            if (bean.isChecked) {
+            if (data.isChecked) {
                 checkbox.setImageResource(R.drawable.icon_choice)
             } else {
                 checkbox.setImageResource(R.drawable.icon_choice_no)

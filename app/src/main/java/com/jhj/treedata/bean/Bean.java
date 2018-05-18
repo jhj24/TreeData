@@ -1,7 +1,7 @@
 package com.jhj.treedata.bean;
 
 
-import com.jhj.datalibrary.BaseTree;
+import com.jhj.datalibrary.model.BaseTree;
 
 import java.util.List;
 

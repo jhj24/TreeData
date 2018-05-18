@@ -1,11 +1,11 @@
-package com.jhj.datalibrary.multi
+package com.jhj.datalibrary.tree.multi
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import android.widget.Toast
-import com.jhj.datalibrary.IBaseTree
-import com.jhj.datalibrary.TreeDealUtil
+import com.jhj.datalibrary.model.IBaseTree
+import com.jhj.datalibrary.utils.TreeDealUtil
 import java.util.*
 
 /**
@@ -13,6 +13,7 @@ import java.util.*
  * Created by jhj on 17-9-19.
  */
 abstract class BaseMultiTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : RecyclerView.Adapter<H>() {
+
     abstract val context: Context
     abstract val reminder: String
 
@@ -35,8 +36,9 @@ abstract class BaseMultiTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolde
     override fun getItemCount(): Int = dataList.size
 
     override fun onBindViewHolder(holder: H, position: Int) {
-        holder.itemView.tag = dataList[position]
-        onBindItemHolder(holder, dataList, position)
+        val data = dataList[position]
+        holder.itemView.tag = data
+        onBindItemHolder(holder, data, position)
     }
 
 
@@ -45,7 +47,7 @@ abstract class BaseMultiTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolde
 
 
     abstract fun onCreateItemHolder(parent: ViewGroup, viewType: Int): H
-    abstract fun onBindItemHolder(holder: H, dataList: ArrayList<T>, position: Int)
+    abstract fun onBindItemHolder(holder: H, data: T, position: Int)
 
 
     fun itemViewOnClick(data: T) {

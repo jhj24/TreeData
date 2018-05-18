@@ -6,7 +6,11 @@
     android:background="#fafafa"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_top_bar" />
+    <LinearLayout
+        android:id="@+id/layout_topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
 
     <include layout="@layout/layout_search_input_bar" />
 

@@ -1,26 +1,28 @@
 package com.jhj.treedata.position
 
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import com.jhj.datalibrary.IBaseTree
-import com.jhj.datalibrary.single.BaseSingleListAdapter
+import com.jhj.datalibrary.model.IBaseTree
+import com.jhj.datalibrary.tree.single.BaseSingleListAdapter
 import com.jhj.treedata.R
 import kotlinx.android.synthetic.main.layout_multi_tree_node.view.*
 
 /**
  * Created by jhj on 17-9-8.
  */
-class CommonTreeListAdapter<T : IBaseTree<T>> : BaseSingleListAdapter<T>() {
+class CommonTreeListAdapter<T : IBaseTree<T>> : BaseSingleListAdapter<T,CommonTreeListAdapter.ItemViewHolder>() {
 
 
-    override fun onBindItemHolder(holder: ItemViewHolder, dataList: MutableList<T>, position: Int) {
-        val bean = dataList[position]
+
+    override fun onBindItemHolder(holder: ItemViewHolder, data: T, position: Int) {
         with(holder.itemView) {
-            tv_name.text = bean.name
-            if (selectedItem?.id == bean.id.toString() && selectedItem?.name == bean.name) {
-                bean.isChecked = true
+            tv_name.text = data.name
+            if (selectedItem?.id == data.id.toString() && selectedItem?.name == data.name) {
+                data.isChecked = true
             }
-            if (bean.isChecked) {
+            if (data.isChecked) {
                 checkbox.setImageResource(R.drawable.icon_choice)
             } else {
                 checkbox.setImageResource(R.drawable.icon_choice_no)
@@ -28,8 +30,14 @@ class CommonTreeListAdapter<T : IBaseTree<T>> : BaseSingleListAdapter<T>() {
         }
     }
 
+
+
     override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent?.context)
         return ItemViewHolder(inflater.inflate(R.layout.layout_single_tree_node, parent, false))
+    }
+
+    class ItemViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
+
     }
 }

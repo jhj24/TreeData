@@ -1,7 +1,7 @@
-package com.jhj.datalibrary;
+package com.jhj.datalibrary.model;
 
 /**
- * 树型数据中的通用数据
+ * 树型数据中的通用数据，不想实现接口中的所有方法时，可以实现该抽象类
  * <p>
  * Created by jhj on 17-9-8.
  */

@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.layout_single_tree_node.view.*
 /**
  * Created by jhj on 17-9-22.
  */
-class ChannelTreeAdapter<T : IBaseTree<T>>(private val cont: Context) : BaseSingleTreeAdapter<T, ChannelTreeAdapter.ItemViewHolder>() {
+class ChannelTreeAdapter<T : IBaseTree<T>>(private val cont: Context) : BaseSingleTreeAdapter<T, ChannelTreeAdapter<T>.ItemViewHolder>() {
     override fun onBindItemHolder(holder: ItemViewHolder?, data: T, position: Int) {
         holder?.itemView?.let {
             it.tv_name.text = data.name
@@ -59,7 +59,6 @@ class ChannelTreeAdapter<T : IBaseTree<T>>(private val cont: Context) : BaseSing
                 data?.let {
                     itemViewOnClick(it)
                 }
-
             }
         }
     }

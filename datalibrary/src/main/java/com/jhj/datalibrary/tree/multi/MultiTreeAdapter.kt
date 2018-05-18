@@ -1,4 +1,4 @@
-package com.jhj.datalibrary.tree.single
+package com.jhj.datalibrary.tree.multi
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,23 +9,20 @@ import com.jhj.datalibrary.model.IBaseTree
 import kotlinx.android.synthetic.main.layout_tree_item.view.*
 
 /**
- * 通用adapter
- * Created by jhj on 17-9-22.
+ * Created by jhj on 2018-5-18 0018.
  */
-abstract class SingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : BaseSingleTreeAdapter<T, H>() {
+abstract class MultiTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : BaseMultiTreeAdapter<T, H>() {
 
-
-    override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): H {
-        val inflater = LayoutInflater.from(parent?.context)
+    override fun onCreateItemHolder(parent: ViewGroup, viewType: Int): H {
+        val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.layout_tree_item, parent, false)
         view.list_item.addView(onCreateItemView(parent, viewType))
         return onCreateItemViewHolder(view)
-
     }
 
-    override fun onBindItemHolder(holder: H?, data: T, position: Int) {
+    override fun onBindItemHolder(holder: H, data: T, position: Int) {
         val paddingLeft = data.itemLevels * 2 * dp10
-        holder?.itemView?.list_item?.setPadding(paddingLeft, dp10, dp10, dp10)
+        holder.itemView?.list_item?.setPadding(paddingLeft, dp10, dp10, dp10)
         onBindItemViewHolder(holder, data, position)
     }
 
@@ -43,5 +40,4 @@ abstract class SingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> 
      * 设置显示样式
      */
     abstract fun onBindItemViewHolder(holder: H?, data: T, position: Int)
-
 }

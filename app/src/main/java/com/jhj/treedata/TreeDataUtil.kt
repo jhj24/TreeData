@@ -38,7 +38,7 @@ object TreeDataUtil {
     }
 
     fun getStaffTree(context: Context): List<StaffBean> {
-        val inputStream = context.resources.assets.open("channelgroup.json")
+        val inputStream = context.resources.assets.open("staff.json")
         val text = inputStream.use {
             val buf = BufferedReader(InputStreamReader(inputStream, "utf-8"))
             buf.readText()

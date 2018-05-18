@@ -6,11 +6,12 @@ import android.os.Bundle
 import android.widget.Toast
 import com.jhj.datalibrary.tree.multi.BaseMultiTreeActivity
 import com.jhj.datalibrary.tree.single.BaseSingleTreeActivity
-import com.jhj.treedata.multi.MultiTreeActivity
-import com.jhj.treedata.bean.PersonalTreeBean
-import com.jhj.treedata.singleselected.person.PersonTreeActivity
 import com.jhj.treedata.bean.ChannelTreeBean
+import com.jhj.treedata.bean.PersonalTreeBean
+import com.jhj.treedata.multi.MultiTreeActivity
+import com.jhj.treedata.singleclicked.StaffTreeActivity
 import com.jhj.treedata.singleselected.channel.ChannelTreeActivity
+import com.jhj.treedata.singleselected.person.PersonTreeActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity() {
@@ -43,7 +44,8 @@ class MainActivity : Activity() {
             startActivityForResult(intent, 1003)
         }
         test.setOnClickListener {
-
+            val intent = Intent(this@MainActivity, StaffTreeActivity::class.java);
+            startActivity(intent)
         }
     }
 

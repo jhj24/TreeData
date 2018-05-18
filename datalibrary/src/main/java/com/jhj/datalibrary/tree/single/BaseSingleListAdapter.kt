@@ -33,9 +33,9 @@ abstract class BaseSingleListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
      * 对外公开方法，设置itemView点击事件时，执行该方法
      */
     fun itemViewOnClick(bean: T) {
-        val location = dataList.indexOf(bean)
+        val position = dataList.indexOf(bean)
         bean.isChecked = !bean.isChecked
-        notifyItemRangeChanged(location, 1)
+        notifyItemRangeChanged(position, 1)
         if (bean.isChecked) {
             selectedItem = bean
             dataList.forEach {

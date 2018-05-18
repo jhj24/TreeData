@@ -66,6 +66,7 @@ abstract class BaseMultiTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolde
                     setChildrenLevels(data)
                     dataList.addAll(position + 1, data.children)
                     notifyItemRangeInserted(position + 1, data.children.size)
+                    notifyItemChanged(position)
                 }
                 data.isShowChildren = !data.isShowChildren
             } else {

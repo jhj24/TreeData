@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.layout_multi_tree_node.view.*
 /**
  * Created by jhj on 17-9-8.
  */
-class CommonListAdapter<T : IBaseTree<T>> : BaseSingleListAdapter<T, CommonListAdapter.ItemViewHolder>() {
+class CommonListAdapter<T : IBaseTree<T>> : BaseSingleListAdapter<T, CommonListAdapter<T>.ItemViewHolder>() {
 
 
     override fun onBindItemHolder(holder: ItemViewHolder, data: T, position: Int) {

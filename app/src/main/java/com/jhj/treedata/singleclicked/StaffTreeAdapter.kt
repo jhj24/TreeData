@@ -1,6 +1,5 @@
 package com.jhj.treedata.singleclicked
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -12,7 +11,6 @@ import com.jhj.datalibrary.tree.single.BaseSingleTreeAdapter
 import com.jhj.treedata.R
 import com.jhj.treedata.bean.StaffTreeBean
 import kotlinx.android.synthetic.main.layout_single_tree_node.view.*
-import java.util.*
 
 /**
  * Created by jhj on 18-5-9.
@@ -38,8 +36,8 @@ class StaffTreeAdapter(val mContext: Context) : BaseSingleTreeAdapter<StaffTreeB
     }
 
     override fun onBindItemHolder(holder: ItemViewHolder?, data: StaffTreeBean, position: Int) {
-        val paddingLeft = dataList[position].itemLevels * 2 * dp10
-        holder?.itemView?.list_item?.setPadding(paddingLeft, 0, 0, 0)
+        val paddingLeft = dp10 + dataList[position].itemLevels * 2 * dp10
+        holder?.itemView?.list_item?.setPadding(paddingLeft, dp10, dp10, dp10)
         holder?.itemView?.let {
             it.tv_name.text = data.name
             it.tv_id.text = data.department

@@ -57,7 +57,7 @@ abstract class BaseSingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
     fun itemViewOnClick(bean: T) {
         if (bean.isRoot) {
             if (bean.children != null && bean.children.size > 0) {
-                val location = dataList.indexOf(bean)
+                val position = dataList.indexOf(bean)
                 if (bean.isShowChildren) {
                     val children: MutableList<T> = mutableListOf()
                     getItemAllChildren(bean, children)
@@ -66,8 +66,9 @@ abstract class BaseSingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
                 } else {
                     TreeDealUtil.sort(bean.children)
                     setChildrenLevels(bean)
-                    dataList.addAll(location + 1, bean.children)
-                    notifyItemRangeInserted(location + 1, bean.children.size)
+                    dataList.addAll(position + 1, bean.children)
+                    notifyItemRangeInserted(position + 1, bean.children.size)
+                    notifyItemChanged(position)
                 }
                 bean.isShowChildren = !bean.isShowChildren
             } else {
@@ -83,9 +84,9 @@ abstract class BaseSingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
      *  如果该item被选中，遍历List，找出被勾选的其他item，设置为false
      */
     private fun onCheckedChanged(bean: T) {
-        val location = dataList.indexOf(bean)
+        val position = dataList.indexOf(bean)
         bean.isChecked = !bean.isChecked
-        notifyItemRangeChanged(location, 1)
+        notifyItemRangeChanged(position, 1)
         if (bean.isChecked) {
             selectedItem = bean
             list.forEach {

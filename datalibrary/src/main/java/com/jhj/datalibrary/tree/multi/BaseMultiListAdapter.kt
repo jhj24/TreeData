@@ -29,7 +29,7 @@ abstract class BaseMultiListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolde
     }
 
     abstract fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): H
-    abstract fun onBindItemHolder(holder: H?, data: T, position: Int)
+    abstract fun onBindItemHolder(holder: H, data: T, position: Int)
 
     /**
      * 对外公开方法，设置itemView点击时间

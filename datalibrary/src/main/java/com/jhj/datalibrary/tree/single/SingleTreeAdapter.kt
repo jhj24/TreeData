@@ -18,6 +18,7 @@ abstract class SingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> 
     override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): H {
         val inflater = LayoutInflater.from(parent?.context)
         val view = inflater.inflate(R.layout.layout_tree_item, parent, false)
+        setDivideLineAttribute(view.line_divide)
         view.list_item.addView(onCreateItemView(parent, viewType))
         return onCreateItemViewHolder(view)
 
@@ -25,7 +26,7 @@ abstract class SingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> 
 
     override fun onBindItemHolder(holder: H?, data: T, position: Int) {
         val paddingLeft = data.itemLevels * 2 * dp10
-        holder?.itemView?.list_item?.setPadding(paddingLeft, dp10, dp10, dp10)
+        holder?.itemView?.list_item?.setPadding(paddingLeft, 0, 0, 0)
         onBindItemViewHolder(holder, data, position)
     }
 
@@ -43,5 +44,10 @@ abstract class SingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> 
      * 设置显示样式
      */
     abstract fun onBindItemViewHolder(holder: H?, data: T, position: Int)
+
+    /**
+     * 设置分割线属性样式
+     */
+    open fun setDivideLineAttribute(line_divide: View) {}
 
 }

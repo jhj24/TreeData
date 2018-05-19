@@ -18,18 +18,17 @@ class MultiListAdapter : BaseMultiListAdapter<PersonalTreeBean, MultiListAdapter
         return ItemViewHolder(inflater.inflate(R.layout.layout_multi_tree_node, parent, false))
     }
 
-    override fun onBindItemHolder(holder: ItemViewHolder?, data: PersonalTreeBean, position: Int) {
-        holder?.let {
-            with(it.itemView) {
-                tv_name.text = data.name
-                checkbox.isClickable = false
-                if (data.isChecked) {
-                    checkbox.setImageResource(R.drawable.icon_choice)
-                } else {
-                    checkbox.setImageResource(R.drawable.icon_choice_no)
-                }
+    override fun onBindItemHolder(holder: ItemViewHolder, data: PersonalTreeBean, position: Int) {
+        with(holder.itemView) {
+            tv_name.text = data.name
+            checkbox.isClickable = false
+            if (data.isChecked) {
+                checkbox.setImageResource(R.drawable.icon_choice)
+            } else {
+                checkbox.setImageResource(R.drawable.icon_choice_no)
             }
         }
+
     }
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

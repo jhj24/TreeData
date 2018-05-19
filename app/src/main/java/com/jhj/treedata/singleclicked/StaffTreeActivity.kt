@@ -2,15 +2,22 @@ package com.jhj.treedata.singleclicked
 
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
+import android.view.View
+import com.jhj.datalibrary.interfaces.OnCustomTopbarListener
 import com.jhj.datalibrary.tree.single.BaseSingleListAdapter
 import com.jhj.datalibrary.tree.single.BaseSingleTreeActivity
 import com.jhj.datalibrary.tree.single.BaseSingleTreeAdapter
+import com.jhj.treedata.R
 import com.jhj.treedata.TreeDataUtil
 import com.jhj.treedata.bean.StaffBean
 import com.jhj.treedata.bean.StaffTreeBean
+import kotlinx.android.synthetic.main.layout_top_bar1.view.*
 import java.util.ArrayList
 
 /**
+ * 不带checkbox的树型数据点击事件，进入新的界面
+ * </p>
+ * 对非理想的数据进行格式化
  * Created by jhj on 18-5-18.
  */
 
@@ -23,10 +30,20 @@ class StaffTreeActivity : BaseSingleTreeActivity<StaffTreeBean>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initTopBar(R.layout.layout_top_bar1, object : OnCustomTopbarListener {
+            override fun onLayout(view: View) {
+                view.topBar_title.text = "点击事件"
+                view.topBar_back.setOnClickListener { v ->
+                    finish()
+                }
+            }
+        })
+
         val list = ArrayList<StaffTreeBean>()
         val staff = TreeDataUtil.getStaffTree(this)
         val staffTree = parseTreeData(staff, list)
         initDataList(staffTree)
+
 
     }
 

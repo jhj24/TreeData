@@ -18,7 +18,6 @@ import kotlinx.android.synthetic.main.layout_single_tree_node.view.*
 class StaffTreeAdapter(val mContext: Context) : BaseSingleTreeAdapter<StaffTreeBean, StaffTreeAdapter.ItemViewHolder>() {
 
 
-    var type = ""
 
     override val context: Context
         get() = mContext
@@ -41,16 +40,10 @@ class StaffTreeAdapter(val mContext: Context) : BaseSingleTreeAdapter<StaffTreeB
         holder?.itemView?.let {
             it.tv_name.text = data.name
             it.tv_id.text = data.department
-            if (data.isRoot) {
-                it.checkbox.visibility = android.view.View.GONE
-            } else {
-                it.checkbox.visibility = android.view.View.VISIBLE
-                //ImageUtil.setCircleImage(data.icon, it.iv_tree_mark)
-            }
+            it.checkbox.visibility = View.GONE
             if (selectedItem?.name == data.name && selectedItem?.id == data.id) {
                 data.isChecked = true
             }
-            it.checkbox.visibility = View.GONE
             if (data.isRoot) {
                 if (data.isShowChildren) {
                     it.iv_tree_mark.setImageResource(R.drawable.tree_on)

@@ -9,23 +9,23 @@ import com.jhj.datalibrary.model.IBaseTree
 import kotlinx.android.synthetic.main.layout_tree_item.view.*
 
 /**
- * Created by jhj on 2018-5-18 0018.
+ * 列表类数据基础adapter
+ * Created by jhj on 17-9-6.
  */
-abstract class MultiTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : BaseMultiTreeAdapter<T, H>() {
+abstract class MultiListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : BaseMultiListAdapter<T, H>() {
 
-    override fun onCreateItemHolder(parent: ViewGroup, viewType: Int): H {
-        val inflater = LayoutInflater.from(parent.context)
+
+    override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): H {
+        val inflater = LayoutInflater.from(parent?.context)
         val view = inflater.inflate(R.layout.layout_tree_item, parent, false)
         setDivideLineAttribute(view.line_divide)
         view.list_item.addView(onCreateItemView(parent, viewType))
         return onCreateItemViewHolder(view)
+
     }
 
 
     override fun onBindItemHolder(holder: H, data: T, position: Int) {
-        //根据节点的级别设置左边距大小
-        val paddingLeft = data.itemLevels * 2 * dp10
-        holder.itemView?.list_item?.setPadding(paddingLeft, 0, 0, 0)
         onBindItemViewHolder(holder, data, position)
     }
 
@@ -47,8 +47,5 @@ abstract class MultiTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> :
     /**
      * 设置分割线属性样式
      */
-    open fun setDivideLineAttribute(line_divide: View) {
-
-    }
-
+    open fun setDivideLineAttribute(line_divide: View) {}
 }

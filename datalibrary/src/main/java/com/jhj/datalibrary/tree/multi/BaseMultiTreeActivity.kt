@@ -68,7 +68,10 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
         listener.onLayout(view)
     }
 
-
+    /**
+     * 对外公开必须实现的方法，初始化数据
+     *
+     */
     fun initDataList(dataList: ArrayList<T>) {
         this.dataList = dataList
         Observable
@@ -87,7 +90,10 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
 
     }
 
-
+    /**
+     * 对外公开方法，获取所有被选中的 items
+     *
+     */
     fun getSelectedItems(): ArrayList<T> {
         val list: ArrayList<T> = arrayListOf()
         parseSelectedItem(dataList, list)
@@ -193,7 +199,7 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
 
     }
 
-    fun filterData() {
+    private fun filterData() {
         if (et_search.text.isNullOrBlank()) {
             recyclerView.visibility = View.VISIBLE
             rv_search.visibility = View.GONE

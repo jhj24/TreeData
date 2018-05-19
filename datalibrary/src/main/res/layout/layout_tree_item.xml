@@ -11,6 +11,7 @@
         android:orientation="horizontal" />
 
     <View
+        android:id="@+id/line_divide"
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="#d9d7d5" />

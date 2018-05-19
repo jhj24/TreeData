@@ -76,7 +76,7 @@ abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
         this.dataList = dataList
         if (this.dataList.size > 0) {
             getAllNodeItem(this.dataList, list)
-            treeAdapter.list = list as java.util.ArrayList<T>
+            treeAdapter.list = list as ArrayList<T>
             treeAdapter.dataList = this.dataList
             treeAdapter.selectedItem = selectedItem
             TreeDealUtil.sort(this.dataList)
@@ -95,9 +95,6 @@ abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
     fun getCheckedItem(): T? {
         val dataList = treeAdapter.list
         dataList.forEach { data ->
-            /*if (data.children != null && data.children.size > 0) {
-                getCheckedItem(data.children)
-            }*/
             if (data.isChecked && !data.isRoot) {
                 return data
             }

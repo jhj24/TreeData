@@ -1,6 +1,8 @@
 package com.jhj.treedata.singleselected.person
 
 import android.content.Context
+import android.graphics.Color
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -25,9 +27,9 @@ class PersonTreeAdapter(private val cont: Context) : SingleTreeAdapter<PersonalT
     override fun onCreateItemView(parent: ViewGroup?, viewType: Int): View {
         val inflater = LayoutInflater.from(parent?.context)
         return if (viewType == 1) {
-            inflater.inflate(R.layout.layout_single_tree_root, parent, false)
+            inflater.inflate(R.layout.layout_person_tree_root, parent, false)
         } else {
-            inflater.inflate(R.layout.layout_single_tree_node, parent, false)
+            inflater.inflate(R.layout.layout_person_tree_node, parent, false)
         }
     }
 
@@ -53,6 +55,14 @@ class PersonTreeAdapter(private val cont: Context) : SingleTreeAdapter<PersonalT
                 it.checkbox.setImageResource(R.drawable.icon_choice_no)
             }
         }
+    }
+
+    override fun setDivideLineAttribute(line_divide: View) {
+        super.setDivideLineAttribute(line_divide)
+        line_divide.setBackgroundColor(Color.RED)
+
+
+
     }
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

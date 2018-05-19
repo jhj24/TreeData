@@ -1,5 +1,6 @@
-package com.jhj.datalibrary.tree.multi
+package com.jhj.datalibrary.tree.single
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -9,26 +10,23 @@ import com.jhj.datalibrary.model.IBaseTree
 import kotlinx.android.synthetic.main.layout_tree_item.view.*
 
 /**
- * Created by jhj on 2018-5-18 0018.
+ * 列表类数据基础adapter
+ * Created by jhj on 17-9-6.
  */
-abstract class MultiTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : BaseMultiTreeAdapter<T, H>() {
+abstract class SimpleSingleListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : BaseSingleListAdapter<T, H>() {
 
-    var extraPaddingLeft: Int? = null
 
-    override fun onCreateItemHolder(parent: ViewGroup, viewType: Int): H {
-        val inflater = LayoutInflater.from(parent.context)
+    override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): H {
+        val inflater = LayoutInflater.from(parent?.context)
         val view = inflater.inflate(R.layout.layout_tree_item, parent, false)
         setDivideLineAttribute(view.line_divide)
         view.list_item.addView(onCreateItemView(parent, viewType))
         return onCreateItemViewHolder(view)
+
     }
 
 
     override fun onBindItemHolder(holder: H, data: T, position: Int) {
-        //根据节点的级别设置左边距大小
-        val padding = extraPaddingLeft ?: (2 * dp10)
-        val paddingLeft = data.itemLevels * padding
-        holder.itemView?.list_item?.setPadding(paddingLeft, 0, 0, 0)
         onBindItemViewHolder(holder, data, position)
     }
 
@@ -45,13 +43,10 @@ abstract class MultiTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> :
     /**
      * 设置显示样式
      */
-    abstract fun onBindItemViewHolder(holder: H?, data: T, position: Int)
+    abstract fun onBindItemViewHolder(holder: H, data: T, position: Int)
 
     /**
      * 设置分割线属性样式
      */
-    open fun setDivideLineAttribute(line_divide: View) {
-
-    }
-
+    open fun setDivideLineAttribute(line_divide: View) {}
 }

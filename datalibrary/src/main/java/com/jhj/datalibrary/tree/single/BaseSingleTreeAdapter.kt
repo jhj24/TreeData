@@ -48,7 +48,7 @@ abstract class BaseSingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
         onBindItemHolder(holder, data, position)
     }
 
-    abstract fun onBindItemHolder(holder: H?, data: T, position: Int)
+    abstract fun onBindItemHolder(holder: H, data: T, position: Int)
     abstract fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): H
 
     /**

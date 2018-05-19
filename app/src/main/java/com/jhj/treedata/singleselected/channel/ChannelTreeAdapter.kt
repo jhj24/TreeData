@@ -14,27 +14,6 @@ import kotlinx.android.synthetic.main.layout_single_tree_node.view.*
  * Created by jhj on 17-9-22.
  */
 class ChannelTreeAdapter<T : IBaseTree<T>>(private val cont: Context) : BaseSingleTreeAdapter<T, ChannelTreeAdapter<T>.ItemViewHolder>() {
-    override fun onBindItemHolder(holder: ItemViewHolder?, data: T, position: Int) {
-        holder?.itemView?.let {
-            it.tv_name.text = data.name
-            if (data.isRoot) {
-                it.checkbox.visibility = android.view.View.GONE
-            } else {
-                it.checkbox.visibility = android.view.View.VISIBLE
-            }
-            if (selectedItem?.name == data.name && selectedItem?.id == data.id) {
-                data.isChecked = true
-            }
-            if (data.isChecked) {
-                it.checkbox.setImageResource(R.drawable.icon_choice)
-            } else {
-                it.checkbox.setImageResource(R.drawable.icon_choice_no)
-            }
-            val paddingLeft = dp10 + dataList[position].itemLevels * 2 * dp10
-            it.list_item.setPadding(paddingLeft, dp10, dp10, dp10)
-        }
-    }
-
 
     override val context: Context
         get() = cont
@@ -50,6 +29,30 @@ class ChannelTreeAdapter<T : IBaseTree<T>>(private val cont: Context) : BaseSing
             ItemViewHolder(inflater.inflate(R.layout.layout_single_tree_node, parent, false))
         }
     }
+
+    override fun onBindItemHolder(holder: ItemViewHolder, data: T, position: Int) {
+        holder.itemView?.let {
+            val paddingLeft = dp10 + dataList[position].itemLevels * 2 * dp10
+            it.list_item.setPadding(paddingLeft, dp10, dp10, dp10)
+            it.tv_name.text = data.name
+            if (data.isRoot) {
+                it.checkbox.visibility = android.view.View.GONE
+            } else {
+                it.checkbox.visibility = android.view.View.VISIBLE
+            }
+            if (selectedItem?.name == data.name && selectedItem?.id == data.id) {
+                data.isChecked = true
+            }
+            if (data.isChecked) {
+                it.checkbox.setImageResource(R.drawable.icon_choice)
+            } else {
+                it.checkbox.setImageResource(R.drawable.icon_choice_no)
+            }
+        }
+    }
+
+
+
 
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

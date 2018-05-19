@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.layout_tree_item.view.*
  * 通用adapter
  * Created by jhj on 17-9-22.
  */
-abstract class SingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : BaseSingleTreeAdapter<T, H>() {
+abstract class SimpleSingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : BaseSingleTreeAdapter<T, H>() {
 
 
      var extraPaddingLeft: Int? = null
@@ -26,7 +26,7 @@ abstract class SingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> 
 
     }
 
-    override fun onBindItemHolder(holder: H?, data: T, position: Int) {
+    override fun onBindItemHolder(holder: H, data: T, position: Int) {
         val padding = extraPaddingLeft ?: (2 * dp10)
         val paddingLeft = data.itemLevels * padding
         holder?.itemView?.list_item?.setPadding(paddingLeft, 0, 0, 0)
@@ -46,7 +46,7 @@ abstract class SingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> 
     /**
      * 设置显示样式
      */
-    abstract fun onBindItemViewHolder(holder: H?, data: T, position: Int)
+    abstract fun onBindItemViewHolder(holder: H, data: T, position: Int)
 
     /**
      * 设置分割线属性样式

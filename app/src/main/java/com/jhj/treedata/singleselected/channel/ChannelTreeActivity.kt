@@ -11,6 +11,7 @@ import com.jhj.treedata.singleselected.CommonListAdapter
 import com.jhj.treedata.R
 import com.jhj.treedata.TreeDataUtil
 import com.jhj.treedata.bean.ChannelTreeBean
+import kotlinx.android.synthetic.main.layout_search_bar.view.*
 import kotlinx.android.synthetic.main.layout_top_bar.view.*
 import java.util.ArrayList
 
@@ -29,6 +30,13 @@ class ChannelTreeActivity : BaseSingleTreeActivity<ChannelTreeBean>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        customSearchBar(R.layout.layout_search_bar, object : OnCustomTopbarListener {
+            override fun onLayout(view: View) {
+                view.et_search.addTextChangedListener(textWatcherListener)
+            }
+        })
+
         val datalist = TreeDataUtil.getChannelGroup(this)
         initDataList(datalist as ArrayList<ChannelTreeBean>)
         initTopBar(R.layout.layout_top_bar, object : OnCustomTopbarListener {

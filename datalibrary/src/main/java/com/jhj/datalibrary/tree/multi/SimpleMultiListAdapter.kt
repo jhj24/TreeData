@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.layout_tree_item.view.*
  * 列表类数据基础adapter
  * Created by jhj on 17-9-6.
  */
-abstract class MultiListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : BaseMultiListAdapter<T, H>() {
+abstract class SimpleMultiListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : BaseMultiListAdapter<T, H>() {
 
 
     override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): H {
@@ -42,7 +42,7 @@ abstract class MultiListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> :
     /**
      * 设置显示样式
      */
-    abstract fun onBindItemViewHolder(holder: H?, data: T, position: Int)
+    abstract fun onBindItemViewHolder(holder: H, data: T, position: Int)
 
     /**
      * 设置分割线属性样式

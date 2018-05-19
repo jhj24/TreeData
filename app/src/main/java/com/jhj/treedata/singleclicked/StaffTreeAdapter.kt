@@ -26,17 +26,17 @@ class StaffTreeAdapter(val mContext: Context) : BaseSingleTreeAdapter<StaffTreeB
     override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent?.context)
         val view = if (viewType == 1) {
-            inflater.inflate(R.layout.layout_single_tree_root, parent, false)
+            inflater.inflate(R.layout.layout_staff_tree_root, parent, false)
         } else {
-            inflater.inflate(R.layout.layout_single_tree_node, parent, false)
+            inflater.inflate(R.layout.layout_staff_tree_node, parent, false)
         }
         return ItemViewHolder(view)
     }
 
-    override fun onBindItemHolder(holder: ItemViewHolder?, data: StaffTreeBean, position: Int) {
+    override fun onBindItemHolder(holder: ItemViewHolder, data: StaffTreeBean, position: Int) {
         val paddingLeft = dp10 + dataList[position].itemLevels * 2 * dp10
-        holder?.itemView?.list_item?.setPadding(paddingLeft, dp10, dp10, dp10)
-        holder?.itemView?.let {
+        holder.itemView?.list_item?.setPadding(paddingLeft, dp10, dp10, dp10)
+        holder.itemView?.let {
             it.tv_name.text = data.name
             it.tv_id.text = data.department
             it.checkbox.visibility = View.GONE

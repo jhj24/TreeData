@@ -2,12 +2,11 @@ package com.jhj.treedata.singleselected.person
 
 import android.content.Context
 import android.graphics.Color
-import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.jhj.datalibrary.tree.single.SingleTreeAdapter
+import com.jhj.datalibrary.tree.single.SimpleSingleTreeAdapter
 import com.jhj.treedata.R
 import com.jhj.treedata.bean.PersonalTreeBean
 import kotlinx.android.synthetic.main.layout_single_tree_node.view.*
@@ -16,7 +15,7 @@ import kotlinx.android.synthetic.main.layout_single_tree_node.view.*
  *
  * Created by jhj on 17-9-22.
  */
-class PersonTreeAdapter(private val cont: Context) : SingleTreeAdapter<PersonalTreeBean, PersonTreeAdapter.ItemViewHolder>() {
+class PersonTreeAdapter(private val cont: Context) : SimpleSingleTreeAdapter<PersonalTreeBean, PersonTreeAdapter.ItemViewHolder>() {
 
     override val context: Context
         get() = cont
@@ -41,8 +40,8 @@ class PersonTreeAdapter(private val cont: Context) : SingleTreeAdapter<PersonalT
     }
 
 
-    override fun onBindItemViewHolder(holder: ItemViewHolder?, data: PersonalTreeBean, position: Int) {
-        holder?.itemView?.let {
+    override fun onBindItemViewHolder(holder: ItemViewHolder, data: PersonalTreeBean, position: Int) {
+        holder.itemView?.let {
             it.tv_name.text = data.name
             if (data.isRoot) {
                 it.checkbox.visibility = android.view.View.GONE

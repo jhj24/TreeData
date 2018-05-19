@@ -105,7 +105,7 @@ abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
      * 获取被选中的数据
      */
     fun getCheckedItem(): T? {
-        list.forEach { data ->
+        treeAdapter.list.forEach { data ->
             if (!data.isRoot && data.isChecked) {
                 return data
             }

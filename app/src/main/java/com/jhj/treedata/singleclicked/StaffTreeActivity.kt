@@ -40,14 +40,6 @@ class StaffTreeActivity : BaseSingleTreeActivity<StaffTreeBean>() {
             }
         })
 
-        /**
-         *
-         */
-        customSearchBar(R.layout.layout_search_bar, object : OnCustomTopbarListener {
-            override fun onLayout(view: View) {
-                view.et_search.addTextChangedListener(textWatcherListener)
-            }
-        })
 
         val list = ArrayList<StaffTreeBean>()
         val staff = TreeDataUtil.getStaffTree(this)

@@ -190,6 +190,7 @@ abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
             filterList = list.filter { data -> !data.isRoot && TreeDealUtil.isFilter(text, data) } as ArrayList<T>
             listAdapter.selectedItem = treeAdapter.selectedItem
             listAdapter.dataList = filterList
+            listAdapter.allList = list
             listAdapter.notifyDataSetChanged()
         }
     }

@@ -11,6 +11,7 @@ import com.jhj.datalibrary.model.IBaseTree
 abstract class BaseSingleListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : RecyclerView.Adapter<H>() {
 
     var dataList: MutableList<T> = mutableListOf()
+    var allList: MutableList<T> = mutableListOf()
     var selectedItem: T? = null
 
     override fun getItemCount(): Int = dataList.size
@@ -26,7 +27,7 @@ abstract class BaseSingleListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
 
     }
 
-    abstract fun onBindItemHolder(holder: H, data:T, position: Int)
+    abstract fun onBindItemHolder(holder: H, data: T, position: Int)
     abstract fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): H
 
     /**
@@ -38,7 +39,7 @@ abstract class BaseSingleListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
         notifyItemRangeChanged(position, 1)
         if (bean.isChecked) {
             selectedItem = bean
-            dataList.forEach {
+            allList.forEach {
                 if (it.isChecked && it.id != bean.id && it.name != bean.name) {
                     it.isChecked = false
                     if (dataList.indexOf(it) != -1) {

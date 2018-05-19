@@ -11,6 +11,12 @@ import java.util.List;
 
 public interface IBaseTree<T extends IBaseTree<T>> extends Serializable {
 
+
+    /**
+     * 唯一标示，在一些判断中用到
+     *
+     * @return String
+     */
     String getId();
 
     /**

@@ -11,6 +11,7 @@ import com.jhj.treedata.R
 import com.jhj.treedata.TreeDataUtil
 import com.jhj.treedata.bean.StaffBean
 import com.jhj.treedata.bean.StaffTreeBean
+import kotlinx.android.synthetic.main.layout_search_bar.view.*
 import kotlinx.android.synthetic.main.layout_top_bar1.view.*
 import java.util.ArrayList
 
@@ -36,6 +37,15 @@ class StaffTreeActivity : BaseSingleTreeActivity<StaffTreeBean>() {
                 view.topBar_back.setOnClickListener { v ->
                     finish()
                 }
+            }
+        })
+
+        /**
+         *
+         */
+        customSearchBar(R.layout.layout_search_bar, object : OnCustomTopbarListener {
+            override fun onLayout(view: View) {
+                view.et_search.addTextChangedListener(textWatcherListener)
             }
         })
 

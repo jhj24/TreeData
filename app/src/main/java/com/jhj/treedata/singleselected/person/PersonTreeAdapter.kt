@@ -23,6 +23,9 @@ class PersonTreeAdapter(private val cont: Context) : SingleTreeAdapter<PersonalT
     override val reminder: String
         get() = "就是没数据"
 
+    init {
+        extraPaddingLeft = 100
+    }
 
     override fun onCreateItemView(parent: ViewGroup?, viewType: Int): View {
         val inflater = LayoutInflater.from(parent?.context)
@@ -60,7 +63,6 @@ class PersonTreeAdapter(private val cont: Context) : SingleTreeAdapter<PersonalT
     override fun setDivideLineAttribute(line_divide: View) {
         super.setDivideLineAttribute(line_divide)
         line_divide.setBackgroundColor(Color.RED)
-
 
 
     }

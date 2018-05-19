@@ -15,6 +15,8 @@ import kotlinx.android.synthetic.main.layout_tree_item.view.*
 abstract class SingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : BaseSingleTreeAdapter<T, H>() {
 
 
+     var extraPaddingLeft: Int? = null
+
     override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): H {
         val inflater = LayoutInflater.from(parent?.context)
         val view = inflater.inflate(R.layout.layout_tree_item, parent, false)
@@ -25,7 +27,8 @@ abstract class SingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> 
     }
 
     override fun onBindItemHolder(holder: H?, data: T, position: Int) {
-        val paddingLeft = data.itemLevels * 2 * dp10
+        val padding = extraPaddingLeft ?: (2 * dp10)
+        val paddingLeft = data.itemLevels * padding
         holder?.itemView?.list_item?.setPadding(paddingLeft, 0, 0, 0)
         onBindItemViewHolder(holder, data, position)
     }

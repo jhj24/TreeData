@@ -18,20 +18,17 @@
         </activity>
         <activity
             android:name=".singleselected.person.PersonTreeActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
+            />
         <activity
             android:name=".singleselected.channel.ChannelTreeActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
+             />
         <activity
             android:name=".multi.MultiTreeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".singleclicked.StaffTreeActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
+            />
     </application>
 
 </manifest>

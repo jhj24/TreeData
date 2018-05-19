@@ -12,7 +12,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" />
 
-    <include layout="@layout/layout_search_input_bar" />
+    <LinearLayout
+        android:id="@+id/layout_custom_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+    <include
+        android:id="@+id/layout_search"
+        layout="@layout/layout_search_input_bar" />
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -8,6 +8,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.jhj.datalibrary.model.IBaseTree
@@ -47,6 +48,8 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base_tree)
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN
+                or WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
         initParams()
         treeAdapter = adapter
         listAdapter = mAdapter
@@ -65,6 +68,15 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
      */
     fun initTopBar(resResource: Int, listener: OnCustomTopbarListener) {
         val view = LayoutInflater.from(this).inflate(resResource, layout_topBar)
+        listener.onLayout(view)
+    }
+
+    /**
+     * 自定义搜索框，对edittext内容变化监听时，监听的方法：textWatcherListener
+     */
+    fun customSearchBar(resResource: Int, listener: OnCustomTopbarListener) {
+        layout_search.visibility = View.GONE
+        val view = LayoutInflater.from(this).inflate(resResource, layout_custom_search)
         listener.onLayout(view)
     }
 

@@ -8,11 +8,11 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
-import com.jhj.datalibrary.model.IBaseTree
-import com.jhj.datalibrary.interfaces.OnCustomTopbarListener
 import com.jhj.datalibrary.R
+import com.jhj.datalibrary.interfaces.OnCustomTopbarListener
+import com.jhj.datalibrary.model.IBaseTree
 import com.jhj.datalibrary.utils.TreeDealUtil
 import com.jhj.decodelibrary.CharacterUtil
 import kotlinx.android.synthetic.main.activity_base_tree.*
@@ -29,6 +29,7 @@ abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
         val SELECTED_DATA = "selected_data"
     }
 
+
     abstract val adapter: BaseSingleTreeAdapter<T, out RecyclerView.ViewHolder>
     abstract val mAdapter: BaseSingleListAdapter<T, out RecyclerView.ViewHolder>
 
@@ -41,10 +42,11 @@ abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
     private lateinit var character: CharacterUtil
     private lateinit var dataList: ArrayList<T>
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base_tree)
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN
+                or WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
         initParams()
         treeAdapter = adapter
         listAdapter = mAdapter
@@ -65,6 +67,16 @@ abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
      */
     fun initTopBar(resResource: Int, listener: OnCustomTopbarListener) {
         val view = LayoutInflater.from(this).inflate(resResource, layout_topBar)
+        listener.onLayout(view)
+    }
+
+
+    /**
+     * 自定义搜索框，对edittext内容变化监听时，监听的方法：textWatcherListener
+     */
+    fun customSearchBar(resResource: Int, listener: OnCustomTopbarListener) {
+        layout_search.visibility = View.GONE
+        val view = LayoutInflater.from(this).inflate(resResource, layout_custom_search)
         listener.onLayout(view)
     }
 
@@ -93,9 +105,8 @@ abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
      * 获取被选中的数据
      */
     fun getCheckedItem(): T? {
-        val dataList = treeAdapter.list
-        dataList.forEach { data ->
-            if (data.isChecked && !data.isRoot) {
+        list.forEach { data ->
+            if (!data.isRoot && data.isChecked) {
                 return data
             }
         }
@@ -117,7 +128,9 @@ abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
                 getAllNodeItem(data.children, list)
             }
         }
-        Collections.sort(list) { o1, o2 -> o1.firstLetterSpelling.compareTo(o2.firstLetterSpelling) }
+        Collections.sort(list) { o1, o2 ->
+            o1.firstLetterSpelling.compareTo(o2.firstLetterSpelling)
+        }
     }
 
 
@@ -146,7 +159,10 @@ abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
         false
     }
 
-    private val textWatcherListener = object : TextWatcher {
+    /**
+     * editText内容变化监听器，用于筛选
+     */
+    val textWatcherListener = object : TextWatcher {
         override fun afterTextChanged(p0: Editable?) {
         }
 
@@ -154,12 +170,12 @@ abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
         }
 
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            filterData(et_search.text.toString())
+            filterData(p0.toString())
         }
     }
 
     /**
-     * 帅选
+     * 筛选方法
      */
     private fun filterData(text: String) {
         val filterList: ArrayList<T>

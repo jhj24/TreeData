@@ -18,7 +18,6 @@ import kotlinx.android.synthetic.main.layout_single_tree_node.view.*
 class StaffTreeAdapter(val mContext: Context) : BaseSingleTreeAdapter<StaffTreeBean, StaffTreeAdapter.ItemViewHolder>() {
 
 
-
     override val context: Context
         get() = mContext
     override val reminder: String
@@ -50,6 +49,8 @@ class StaffTreeAdapter(val mContext: Context) : BaseSingleTreeAdapter<StaffTreeB
                 } else {
                     it.iv_tree_mark.setImageResource(R.drawable.tree_off)
                 }
+            } else {
+                it.iv_tree_mark.setImageResource(R.drawable.iv_avatar_circle)
             }
         }
     }

@@ -1,6 +1,5 @@
 package com.jhj.treedata.singleclicked
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -12,7 +11,6 @@ import com.jhj.datalibrary.tree.single.BaseSingleListAdapter
 import com.jhj.treedata.R
 import com.jhj.treedata.bean.StaffTreeBean
 import kotlinx.android.synthetic.main.layout_single_tree_node.view.*
-import java.util.*
 
 /**
  * Created by jhj on 17-9-8.
@@ -20,13 +18,11 @@ import java.util.*
 class StaffTreeListAdapter(val mContext: Context) : BaseSingleListAdapter<StaffTreeBean, StaffTreeListAdapter.ItemViewHolder>() {
 
 
-    var type = ""
-
     override fun onBindItemHolder(holder: ItemViewHolder, data: StaffTreeBean, position: Int) {
         with(holder.itemView) {
             tv_name.text = data.name
             tv_id.text = data.department
-            //ImageUtil.setCircleImage(data.icon, iv_tree_mark)
+            iv_tree_mark.setImageResource(R.drawable.iv_avatar_circle)
             if (selectedItem?.id == data.id.toString() && selectedItem?.name == data.name) {
                 data.isChecked = true
             }

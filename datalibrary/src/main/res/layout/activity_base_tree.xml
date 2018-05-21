@@ -7,13 +7,13 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/layout_topBar"
+        android:id="@+id/layout_tree_top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" />
 
     <LinearLayout
-        android:id="@+id/layout_custom_search"
+        android:id="@+id/layout_tree_custom_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" />

@@ -17,7 +17,7 @@ abstract class BaseSingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
     abstract val context: Context
     abstract val reminder: String
 
-    lateinit var dataList: ArrayList<T>
+    var dataList: ArrayList<T> = arrayListOf()
     lateinit var list: ArrayList<T>
     var selectedItem: T? = null
 

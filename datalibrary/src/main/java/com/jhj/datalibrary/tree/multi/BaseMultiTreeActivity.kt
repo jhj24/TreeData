@@ -30,7 +30,7 @@ import kotlin.collections.ArrayList
  */
 abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
     companion object {
-        val SELECTED_DATA = "selected_data" //进入该界面时，设置选中的 item
+        const val SELECTED_DATA = "selected_data" //进入该界面时，设置选中的 item
     }
 
     abstract val adapter: BaseMultiTreeAdapter<T, out RecyclerView.ViewHolder>

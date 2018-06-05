@@ -26,7 +26,7 @@ import java.util.*
 abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
 
     companion object {
-        val SELECTED_DATA = "selected_data"
+        const val SELECTED_DATA = "selected_data"
     }
 
 

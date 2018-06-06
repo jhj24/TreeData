@@ -2,6 +2,7 @@ package com.jhj.datalibrary.tree.single
 
 import android.app.Activity
 import android.os.Bundle
+import android.support.annotation.CallSuper
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Editable
@@ -42,6 +43,7 @@ abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
     private lateinit var character: CharacterUtil
     private lateinit var dataList: ArrayList<T>
 
+    @CallSuper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base_tree)
@@ -128,9 +130,9 @@ abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
                 getAllNodeItem(data.children, list)
             }
         }
-        Collections.sort(list) { o1, o2 ->
+        list.sortWith(Comparator { o1, o2 ->
             o1.firstLetterSpelling.compareTo(o2.firstLetterSpelling)
-        }
+        })
     }
 
 

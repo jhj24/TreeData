@@ -2,6 +2,7 @@ package com.jhj.datalibrary.tree.multi
 
 import android.app.Activity
 import android.os.Bundle
+import android.support.annotation.CallSuper
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Editable
@@ -45,6 +46,7 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
     private lateinit var dataList: ArrayList<T>
 
 
+    @CallSuper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base_tree)

@@ -1,6 +1,8 @@
 package com.jhj.treedata.singleclicked
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.support.annotation.CallSuper
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.jhj.datalibrary.interfaces.OnCustomTopbarListener

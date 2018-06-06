@@ -2,7 +2,6 @@ package com.jhj.datalibrary.tree.multi
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.annotation.CallSuper
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Editable
@@ -11,10 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
-import com.jhj.datalibrary.model.IBaseTree
-import com.jhj.datalibrary.interfaces.OnCustomTopbarListener
 import com.jhj.datalibrary.R
+import com.jhj.datalibrary.interfaces.OnCustomTopbarListener
+import com.jhj.datalibrary.model.IBaseTree
 import com.jhj.datalibrary.utils.TreeDealUtil
 import com.jhj.decodelibrary.CharacterUtil
 import io.reactivex.Observable
@@ -23,7 +21,6 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_base_tree.*
 import kotlinx.android.synthetic.main.layout_search_input_bar.*
 import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * 树型数据多选，基础Activity
@@ -46,7 +43,6 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
     private lateinit var dataList: ArrayList<T>
 
 
-    @CallSuper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base_tree)
@@ -144,7 +140,9 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
                 getAllNodeItem(data.children, list)
             }
         }
-        Collections.sort(list) { t: T, t1: T -> t.firstLetterSpelling.compareTo(t1.firstLetterSpelling) }
+        list.sortWith(Comparator { t: T, t1: T ->
+            t.firstLetterSpelling.compareTo(t1.firstLetterSpelling)
+        })
     }
 
 

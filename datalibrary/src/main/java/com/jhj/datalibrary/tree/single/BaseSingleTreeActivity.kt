@@ -43,7 +43,6 @@ abstract class BaseSingleTreeActivity<T : IBaseTree<T>> : Activity() {
     private lateinit var character: CharacterUtil
     private lateinit var dataList: ArrayList<T>
 
-    @CallSuper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base_tree)

@@ -60,7 +60,10 @@ init {
 }
 ```
 ### 4. 界面效果
-![多选](https://github.com/jhj24/TreeData/blob/master/app/screenshot/multi_selected.gif)![单选](https://github.com/jhj24/TreeData/blob/master/app/screenshot/single_selected.gif)![单击](https://github.com/jhj24/TreeData/blob/master/app/screenshot/single_clicked.gif)
+<img src="https://github.com/jhj24/TreeData/blob/master/app/screenshot/multi_selected.gif" width="50%" height="50%" alt=""/>
+<img src="https://github.com/jhj24/TreeData/blob/master/app/screenshot/single_selected.gif" width="50%" height="50%" alt=""/>
+<img src="https://github.com/jhj24/TreeData/blob/master/app/screenshot/single_clicked.gif" width="50%" height="50%" alt=""/>
+
 
 
 

@@ -157,6 +157,9 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
             } else if(data.children?.isNotEmpty() == true){
                 data.isChecked = recursionCheckState(data.children)
                 allChildrenChecked = data.isChecked && allChildrenChecked
+            }else{
+                data.isChecked = false
+                allChildrenChecked = data.isChecked && allChildrenChecked
             }
         }
         if (dataList.isEmpty()) {

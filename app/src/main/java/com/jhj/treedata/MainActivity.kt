@@ -8,6 +8,7 @@ import com.jhj.datalibrary.tree.multi.BaseMultiTreeActivity
 import com.jhj.datalibrary.tree.single.BaseSingleTreeActivity
 import com.jhj.treedata.bean.ChannelTreeBean
 import com.jhj.treedata.bean.PersonalTreeBean
+import com.jhj.treedata.bean.StaffTreeBean
 import com.jhj.treedata.multi.old.MultiTreeActivity
 import com.jhj.treedata.multi.simple.PersonMultiTreeActivity
 import com.jhj.treedata.singleclicked.StaffTreeActivity
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity() {
     private var channelTreeBean: ChannelTreeBean? = null
-    private var multiBean1: ArrayList<PersonalTreeBean>? = null
+    private var multiBean1: ArrayList<StaffTreeBean>? = null
     private var multiBean2: ArrayList<PersonalTreeBean>? = null
     private var personTreeBean: PersonalTreeBean? = null
 
@@ -64,7 +65,7 @@ class MainActivity : Activity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1001 && resultCode == RESULT_OK) {
-            multiBean1 = data?.getSerializableExtra("data") as? ArrayList<PersonalTreeBean>?
+            multiBean1 = data?.getSerializableExtra("data") as? ArrayList<StaffTreeBean>?
             if (multiBean1 != null) {
                 val s = multiBean1?.map { it.name }.toString()
                 Toast.makeText(this@MainActivity, s, Toast.LENGTH_SHORT).show()

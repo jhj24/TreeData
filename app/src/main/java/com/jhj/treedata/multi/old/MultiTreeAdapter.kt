@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.jhj.datalibrary.tree.multi.BaseMultiTreeAdapter
 import com.jhj.treedata.R
-import com.jhj.treedata.bean.PersonalTreeBean
+import com.jhj.treedata.bean.StaffTreeBean
 import kotlinx.android.synthetic.main.layout_multi_tree_node.view.*
 
 /**
  * Created by jhj on 17-9-19.
  */
-class MultiTreeAdapter(private val cont: Context) : BaseMultiTreeAdapter<PersonalTreeBean, MultiTreeAdapter.ItemViewHolder>() {
+class MultiTreeAdapter(private val cont: Context) : BaseMultiTreeAdapter<StaffTreeBean, MultiTreeAdapter.ItemViewHolder>() {
 
 
     override val context: Context
@@ -31,7 +31,7 @@ class MultiTreeAdapter(private val cont: Context) : BaseMultiTreeAdapter<Persona
         }
     }
 
-    override fun onBindItemHolder(holder: ItemViewHolder, data: PersonalTreeBean, position: Int) {
+    override fun onBindItemHolder(holder: ItemViewHolder, data: StaffTreeBean, position: Int) {
         with(holder.itemView) {
             tv_name.text = data.name
             if (selectedItem?.name == data.name && selectedItem?.id == data.id) {
@@ -50,11 +50,11 @@ class MultiTreeAdapter(private val cont: Context) : BaseMultiTreeAdapter<Persona
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
             itemView.setOnClickListener {
-                val data = itemView.tag as PersonalTreeBean
+                val data = itemView.tag as StaffTreeBean
                 itemViewOnClick(data)
             }
             itemView.checkbox.setOnClickListener {
-                val data = itemView.tag as PersonalTreeBean
+                val data = itemView.tag as StaffTreeBean
                 checkboxOnClick(data)
             }
         }

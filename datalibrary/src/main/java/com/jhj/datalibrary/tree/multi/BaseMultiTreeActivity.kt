@@ -116,7 +116,7 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
      */
     private fun parseSelectedItem(dataList: List<T>, list: ArrayList<T>) {
         dataList.forEach { data ->
-            if (data.isRoot && data.children.isNotEmpty()) {
+            if (data.isRoot && data.children?.isNotEmpty() == true) {
                 parseSelectedItem(data.children, list)
             }
             if (!data.isRoot && data.isChecked && list.indexOf(data) == -1) {
@@ -136,7 +136,7 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
             if (!data.isRoot) {
                 list.add(data)
             }
-            if (data.isRoot && data.children.isNotEmpty()) {
+            if (data.isRoot && data.children?.isNotEmpty() == true) {
                 getAllNodeItem(data.children, list)
             }
         }
@@ -154,7 +154,7 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
         dataList.forEach { data ->
             if (!data.isRoot) {
                 allChildrenChecked = setBeanCheckState(data) && allChildrenChecked
-            } else {
+            } else if(data.children?.isNotEmpty() == true){
                 data.isChecked = recursionCheckState(data.children)
                 allChildrenChecked = data.isChecked && allChildrenChecked
             }

@@ -17,10 +17,10 @@ abstract class BaseSingleListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
     override fun getItemCount(): Int = dataList.size
 
 
-    override final fun onCreateViewHolder(parent: ViewGroup, viewType: Int): H =
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): H =
             onCreateItemHolder(parent, viewType)
 
-    override final fun onBindViewHolder(holder: H, position: Int) {
+    override fun onBindViewHolder(holder: H, position: Int) {
         val data = dataList[position]
         holder.itemView?.tag = data
         onBindItemHolder(holder, data, position)

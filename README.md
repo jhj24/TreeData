@@ -60,9 +60,7 @@ init {
 }
 ```
 ### 4. 界面效果
-<img src="https://github.com/jhj24/TreeData/blob/master/app/screenshot/multi_selected.gif" width="20%" height="20%" alt=""/>
-<img src="https://github.com/jhj24/TreeData/blob/master/app/screenshot/single_selected.gif" width="20%" height="20%" alt=""/>
-<img src="https://github.com/jhj24/TreeData/blob/master/app/screenshot/single_clicked.gif" width="20%" height="20%" alt=""/>
+<img src="https://github.com/jhj24/TreeData/blob/master/app/screenshot/multi_selected.gif" width="30%" height="30%" alt=""/><img src="https://github.com/jhj24/TreeData/blob/master/app/screenshot/single_selected.gif" width="30%" height="30%" alt=""/><img src="https://github.com/jhj24/TreeData/blob/master/app/screenshot/single_clicked.gif" width="30%" height="30%" alt=""/>
 
 
 

@@ -65,9 +65,8 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
      * 对外公开方法，设置标题
      */
     fun initTopBar(resResource: Int, listener: OnCustomTopbarListener) {
-        val view = LayoutInflater.from(this).inflate(resResource, layout_tree_top_bar, false)
+        val view = LayoutInflater.from(this).inflate(resResource, layout_tree_top_bar)
         listener.onLayout(view)
-        layout_tree_top_bar.addView(view)
     }
 
     /**
@@ -75,7 +74,7 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
      */
     fun customSearchBar(resResource: Int, listener: OnCustomTopbarListener) {
         layout_search.visibility = View.GONE
-        val view = LayoutInflater.from(this).inflate(resResource, layout_tree_custom_search, false)
+        val view = LayoutInflater.from(this).inflate(resResource, layout_tree_custom_search)
         listener.onLayout(view)
     }
 

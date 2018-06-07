@@ -1,6 +1,5 @@
 package com.jhj.datalibrary.tree.single
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,7 @@ import com.jhj.datalibrary.model.IBaseTree
 import kotlinx.android.synthetic.main.layout_tree_item.view.*
 
 /**
- * 列表类数据基础adapter
+ * 简化后的TreeAdapter
  * Created by jhj on 17-9-6.
  */
 abstract class SimpleSingleListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : BaseSingleListAdapter<T, H>() {

@@ -9,7 +9,7 @@ import com.jhj.datalibrary.model.IBaseTree
 import kotlinx.android.synthetic.main.layout_tree_item.view.*
 
 /**
- * 通用adapter
+ * 简化后的TreeAdapter
  * Created by jhj on 17-9-22.
  */
 abstract class SimpleSingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : BaseSingleTreeAdapter<T, H>() {

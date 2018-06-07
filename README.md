@@ -37,20 +37,23 @@ fun getSelectedItems()
 
 数据已经在`onBindViewHolder(holder: H, position: Int)`中设置到tag中 ，当在ViewHolder子类中需要数据，可以通过getTag()获取 。
 
+点击时，需要运行的方法
 ```
 fun itemViewOnClick(bean: T)
 
-//多选单击CheckBox时
+//多选、单击CheckBox时
 fun checkboxOnClick(data: T)
 ```
 
 当Adapter继承BaseTree时，需要设置分割线以及不同级别树型数据距左边的距离，以满足树型数据的层次感。
-当Adapter继承SimpleTree时，此时以及设置好了分割线，不满足时可以修改
-设置分割线样式
+
+当Adapter继承SimpleTree时，此时设置好了分割线以及不同级别距左边的内边距，不满足时可以修改
+
+- 设置分割线样式
 ```
 setDivideLineAttribute(line_divide: View) {}
 ```
-设置不同level距左边边距(在初始化方法中调用)
+- 设置不同level距左边边距(在初始化方法中调用)
 ```
 init {
     extraPaddingLeft = 100

@@ -54,7 +54,7 @@ abstract class BaseMultiTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolde
         if (!data.isRoot) {
             checkboxOnClick(data)
         } else {
-            if (data.children.size > 0) {
+            if (data.children?.isNotEmpty() == true) {
                 if (data.isShowChildren) {
                     val children: MutableList<T> = mutableListOf()
                     getItemAllChildren(data, children)

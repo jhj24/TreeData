@@ -59,7 +59,10 @@ init {
     extraPaddingLeft = 100
 }
 ```
-
+### 4. 界面效果
+![多选](https://github.com/jhj24/TreeData/blob/master/app/screenshot/multi_selected.gif)
+![单选](https://github.com/jhj24/TreeData/blob/master/app/screenshot/single_selected.gif)
+![单击](https://github.com/jhj24/TreeData/blob/master/app/screenshot/single_clicked.gif)
 
 
 

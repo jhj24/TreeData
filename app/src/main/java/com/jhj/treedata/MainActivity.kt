@@ -1,8 +1,8 @@
 package com.jhj.treedata
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.jhj.datalibrary.tree.multi.BaseMultiTreeActivity
 import com.jhj.datalibrary.tree.single.BaseSingleTreeActivity
@@ -16,7 +16,7 @@ import com.jhj.treedata.singleselected.channel.ChannelTreeActivity
 import com.jhj.treedata.singleselected.person.PersonTreeActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : Activity() {
+class MainActivity : AppCompatActivity() {
     private var channelTreeBean: ChannelTreeBean? = null
     private var multiBean1: ArrayList<StaffTreeBean>? = null
     private var multiBean2: ArrayList<PersonalTreeBean>? = null
@@ -27,7 +27,7 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        one.setOnClickListener {
+        btn_one.setOnClickListener {
             val intent = Intent(this@MainActivity, MultiTreeActivity::class.java)
             if (multiBean1 != null) {
                 intent.putExtra(BaseMultiTreeActivity.SELECTED_DATA, multiBean1)
@@ -35,7 +35,7 @@ class MainActivity : Activity() {
             startActivityForResult(intent, 1001)
         }
 
-        two.setOnClickListener {
+        btn_two.setOnClickListener {
             val intent = Intent(this@MainActivity, PersonMultiTreeActivity::class.java)
             if (multiBean2 != null) {
                 intent.putExtra(BaseMultiTreeActivity.SELECTED_DATA, multiBean2)
@@ -43,19 +43,19 @@ class MainActivity : Activity() {
             startActivityForResult(intent, 1002)
         }
 
-        tree.setOnClickListener {
+        btn_three.setOnClickListener {
             val intent = Intent(this@MainActivity, ChannelTreeActivity::class.java)
             intent.putExtra(BaseSingleTreeActivity.SELECTED_DATA, channelTreeBean)
             startActivityForResult(intent, 1003)
         }
 
-        four.setOnClickListener {
+        btn_four.setOnClickListener {
             val intent = Intent(this@MainActivity, PersonTreeActivity::class.java)
             intent.putExtra(BaseSingleTreeActivity.SELECTED_DATA, personTreeBean)
             startActivityForResult(intent, 1004)
         }
 
-        five.setOnClickListener {
+        btn_five.setOnClickListener {
             val intent = Intent(this@MainActivity, StaffTreeActivity::class.java);
             startActivity(intent)
         }

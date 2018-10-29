@@ -1,17 +1,17 @@
 # TreeData
 
-封装树型数据基础类
+- 不推荐使用addItemDecoration（）添加分割线，若使用addItemDecoration()方法添加，树型数据展开是先展示分割线后出现数据，影响美观。可以在Item的中写一个View作为分割线。
+- 简化后的Adapter不用使用addItemDecoration()来添加分割线，也不用在item以View作为分割线，因为adapter中已经在item的下面添加了一个View作为分割线。
+- 简化后的Adapter可以直接使用extraPaddingLeft设置二级目录以下目录距左侧的距离
+- 实体类可以直接继承BaseTree,若不满足的话可以继承IBaseTree接口
+- 默认的Adapter可搜索(isSearch)，有排序(isSort)
+- 自定义标题、自定义搜索框
+
 
 
 ### 1. 引入
 ```
 implementation 'com.github.jhj24:TreeData:v.0.8.3'
-
-//当出现Unable to merge dex 时，可采用以下方式引入（包引入冲突）
-implementation('com.github.jhj24:TreeData:v.0.8.3') {
-     exclude group: 'com.github.ReactiveX'
-}
-
 ```
 ### 2. activity中的对外公开方法
 

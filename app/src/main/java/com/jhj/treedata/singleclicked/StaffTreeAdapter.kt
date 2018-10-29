@@ -23,8 +23,8 @@ class StaffTreeAdapter(val mContext: Context) : BaseSingleTreeAdapter<StaffTreeB
     override val reminder: String
         get() = "没有员工"
 
-    override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
-        val inflater = LayoutInflater.from(parent?.context)
+    override fun onCreateItemHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
         val view = if (viewType == 1) {
             inflater.inflate(R.layout.layout_staff_tree_root, parent, false)
         } else {
@@ -34,6 +34,7 @@ class StaffTreeAdapter(val mContext: Context) : BaseSingleTreeAdapter<StaffTreeB
     }
 
     override fun onBindItemHolder(holder: ItemViewHolder, data: StaffTreeBean, position: Int) {
+        val dp10 = (context.resources.displayMetrics.density * 10).toInt()
         val paddingLeft = dp10 + dataList[position].itemLevels * 2 * dp10
         holder.itemView?.list_item?.setPadding(paddingLeft, dp10, dp10, dp10)
         holder.itemView?.let {

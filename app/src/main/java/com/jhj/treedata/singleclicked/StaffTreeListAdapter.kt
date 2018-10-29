@@ -30,8 +30,8 @@ class StaffTreeListAdapter(val mContext: Context) : BaseSingleListAdapter<StaffT
         }
     }
 
-    override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
-        val inflater = LayoutInflater.from(parent?.context)
+    override fun onCreateItemHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
         return ItemViewHolder(inflater.inflate(R.layout.layout_staff_tree_node, parent, false))
     }
 

@@ -1,78 +1,47 @@
 package com.jhj.treedata.singleselected.person
 
 import android.content.Context
-import android.graphics.Color
-import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import com.jhj.datalibrary.tree.single.SimpleSingleTreeAdapter
+import com.jhj.datalibrary.holder.ViewInjector
+import com.jhj.datalibrary.tree.single.SlimSingleTreeAdapter
 import com.jhj.treedata.R
 import com.jhj.treedata.bean.PersonalTreeBean
-import kotlinx.android.synthetic.main.layout_single_tree_node.view.*
 
 /**
  *
  * Created by jhj on 17-9-22.
  */
-class PersonTreeAdapter(private val cont: Context) : SimpleSingleTreeAdapter<PersonalTreeBean, PersonTreeAdapter.ItemViewHolder>() {
+class PersonTreeAdapter(private val cont: Context) : SlimSingleTreeAdapter<PersonalTreeBean>() {
+
 
     override val context: Context
         get() = cont
     override val reminder: String
         get() = "就是没数据"
 
-    init {
-        extraPaddingLeft = 100
-    }
 
-    override fun onCreateItemView(parent: ViewGroup?, viewType: Int): View {
-        val inflater = LayoutInflater.from(parent?.context)
+    override fun onCreateLayoutRes(viewType: Int): Int {
         return if (viewType == 1) {
-            inflater.inflate(R.layout.layout_person_tree_root, parent, false)
+            R.layout.layout_person_tree_root
         } else {
-            inflater.inflate(R.layout.layout_person_tree_node, parent, false)
+            R.layout.layout_person_tree_node
         }
     }
 
-    override fun onCreateItemViewHolder(view: View): ItemViewHolder {
-        return ItemViewHolder(view)
-    }
 
+    override fun onBindItemViewHolder(injector: ViewInjector, data: PersonalTreeBean, position: Int) {
 
-    override fun onBindItemViewHolder(holder: ItemViewHolder, data: PersonalTreeBean, position: Int) {
-        holder.itemView?.let {
-            it.tv_name.text = data.name
-            if (data.isRoot) {
-                it.checkbox.visibility = android.view.View.GONE
-            } else {
-                it.checkbox.visibility = android.view.View.VISIBLE
-            }
-            if (selectedItem?.name == data.name && selectedItem?.id == data.id) {
-                data.isChecked = true
-            }
-            if (data.isChecked) {
-                it.checkbox.setImageResource(R.drawable.icon_choice)
-            } else {
-                it.checkbox.setImageResource(R.drawable.icon_choice_no)
-            }
-        }
-    }
-
-    override fun setDivideLineAttribute(line_divide: View) {
-        super.setDivideLineAttribute(line_divide)
-        line_divide.setBackgroundColor(Color.RED)
-
-
-    }
-
-    inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        init {
-            itemView.setOnClickListener {
-                val bean = itemView.tag as PersonalTreeBean
-                itemViewOnClick(bean)
-            }
+        injector.text(R.id.tv_name, data.name)
+                .clickable(R.id.checkbox, false)
+                .image(R.id.checkbox, if (data.isChecked) R.drawable.icon_choice else R.drawable.icon_choice_no)
+                .clicked {
+                    itemViewOnClick(data)
+                }
+                .visibility(R.id.checkbox, if (data.isRoot) View.GONE else View.VISIBLE)
+        if (selectedItem?.name == data.name && selectedItem?.id == data.id) {
+            data.isChecked = true
         }
 
     }
+
 }

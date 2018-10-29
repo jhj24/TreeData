@@ -7,6 +7,7 @@ import android.widget.Toast
 import com.jhj.datalibrary.interfaces.OnCustomTopbarListener
 import com.jhj.datalibrary.tree.single.BaseSingleTreeActivity
 import com.jhj.datalibrary.tree.single.BaseSingleTreeAdapter
+import com.jhj.treedata.LineItemDecoration
 import com.jhj.treedata.singleselected.CommonListAdapter
 import com.jhj.treedata.R
 import com.jhj.treedata.TreeDataUtil
@@ -22,11 +23,14 @@ import java.util.ArrayList
 class ChannelTreeActivity : BaseSingleTreeActivity<ChannelTreeBean>() {
 
 
-    override val adapter: BaseSingleTreeAdapter<ChannelTreeBean, out RecyclerView.ViewHolder>
+    override val treeAdapter: BaseSingleTreeAdapter<ChannelTreeBean, out RecyclerView.ViewHolder>
         get() = ChannelTreeAdapter(this)
 
-    override val mAdapter: CommonListAdapter<ChannelTreeBean>
+    override val listAdapter: CommonListAdapter<ChannelTreeBean>
         get() = CommonListAdapter()
+
+    override val itemDecoration: RecyclerView.ItemDecoration?
+        get() = LineItemDecoration()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

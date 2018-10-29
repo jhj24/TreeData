@@ -28,7 +28,7 @@ abstract class BaseSingleListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
     }
 
     abstract fun onBindItemHolder(holder: H, data: T, position: Int)
-    abstract fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): H
+    abstract fun onCreateItemHolder(parent: ViewGroup, viewType: Int): H
 
     /**
      * 对外公开方法，设置itemView点击事件时，执行该方法

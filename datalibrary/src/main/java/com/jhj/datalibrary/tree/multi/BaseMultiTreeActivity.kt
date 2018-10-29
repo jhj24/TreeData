@@ -18,8 +18,8 @@ import com.jhj.decodelibrary.CharacterUtil
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_base_tree.*
-import kotlinx.android.synthetic.main.layout_search_input_bar.*
+import kotlinx.android.synthetic.main.activity_tree_data.*
+import kotlinx.android.synthetic.main.layout_tree_search_bar.*
 import java.util.*
 
 /**
@@ -31,34 +31,50 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
         const val SELECTED_DATA = "selected_data" //进入该界面时，设置选中的 item
     }
 
-    abstract val adapter: BaseMultiTreeAdapter<T, out RecyclerView.ViewHolder>
-    abstract val mAdapter: BaseMultiListAdapter<T, out RecyclerView.ViewHolder>
+    abstract val treeAdapter: BaseMultiTreeAdapter<T, out RecyclerView.ViewHolder>
+    abstract val listAdapter: BaseMultiListAdapter<T, out RecyclerView.ViewHolder>?
 
-    lateinit var treeAdapter: BaseMultiTreeAdapter<T, out RecyclerView.ViewHolder>
-    lateinit var listAdapter: BaseMultiListAdapter<T, out RecyclerView.ViewHolder>
+    private var mTreeAdapter: BaseMultiTreeAdapter<T, out RecyclerView.ViewHolder>? = null
+    private var mListAdapter: BaseMultiListAdapter<T, out RecyclerView.ViewHolder>? = null
 
-    val list: ArrayList<T> = arrayListOf()
+    private val list: ArrayList<T> = arrayListOf()
     private var selectedItemList: ArrayList<T>? = null
     private lateinit var character: CharacterUtil
     private lateinit var dataList: ArrayList<T>
 
+    open val isSearch = true
+    open val isSort = true
+    open val itemDecoration: RecyclerView.ItemDecoration? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_base_tree)
+        setContentView(R.layout.activity_tree_data)
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN
                 or WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
-        initParams()
-        treeAdapter = adapter
-        listAdapter = mAdapter
+        mTreeAdapter = treeAdapter
+        mListAdapter = listAdapter
         character = CharacterUtil.getInstance(this)
         selectedItemList = intent.getSerializableExtra(SELECTED_DATA) as? ArrayList<T>
-        searchBarMask.setOnTouchListener(keyboardState)
 
-        recyclerView.adapter = treeAdapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        rv_search.adapter = listAdapter
-        rv_search.layoutManager = LinearLayoutManager(this)
+        if (!isSearch) {
+            layout_tree_search.visibility = View.GONE
+            layout_tree_custom_search.visibility = View.GONE
+        } else {
+            layout_tree_search.visibility = View.VISIBLE
+            layout_tree_custom_search.visibility = View.VISIBLE
+            searchBarMask.setOnTouchListener(keyboardState)
+        }
+
+        if (itemDecoration != null) {
+            recyclerView_tree.addItemDecoration(itemDecoration)
+            recyclerView_tree_search.addItemDecoration(itemDecoration)
+        }
+
+        recyclerView_tree.adapter = mTreeAdapter
+        recyclerView_tree.layoutManager = LinearLayoutManager(this)
+        recyclerView_tree_search.adapter = mListAdapter
+        recyclerView_tree_search.layoutManager = LinearLayoutManager(this)
     }
 
     /**
@@ -73,7 +89,8 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
      * 自定义搜索框，对edittext内容变化监听时，监听的方法：textWatcherListener
      */
     fun customSearchBar(resResource: Int, listener: OnCustomTopbarListener) {
-        layout_search.visibility = View.GONE
+        layout_tree_search.visibility = View.GONE
+        layout_tree_custom_search.visibility = View.VISIBLE
         val view = LayoutInflater.from(this).inflate(resResource, layout_tree_custom_search)
         listener.onLayout(view)
     }
@@ -84,6 +101,13 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
      */
     fun initDataList(dataList: ArrayList<T>) {
         this.dataList = dataList
+        if (this.dataList.size == 0) {
+            bt_tree_reload.visibility = View.VISIBLE
+            tv_tree_load.visibility = View.VISIBLE
+            tv_tree_load.text = "没有数据"
+            return
+        }
+
         Observable
                 .create<ArrayList<T>> {
                     getAllNodeItem(dataList, list)
@@ -93,9 +117,11 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { list ->
-                    TreeDealUtil.sort(dataList)
-                    treeAdapter.dataList = list
-                    treeAdapter.notifyDataSetChanged()
+                    if (isSort) {
+                        TreeDealUtil.sort(dataList)
+                    }
+                    mTreeAdapter?.dataList = list
+                    mTreeAdapter?.notifyDataSetChanged()
                 }
 
     }
@@ -139,9 +165,12 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
                 getAllNodeItem(data.children, list)
             }
         }
-        list.sortWith(Comparator { t: T, t1: T ->
-            t.firstLetterSpelling.compareTo(t1.firstLetterSpelling)
-        })
+        if (isSort) {
+            list.sortWith(Comparator { t: T, t1: T ->
+                t.firstLetterSpelling.compareTo(t1.firstLetterSpelling)
+            })
+        }
+
     }
 
 
@@ -153,10 +182,10 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
         dataList.forEach { data ->
             if (!data.isRoot) {
                 allChildrenChecked = setBeanCheckState(data) && allChildrenChecked
-            } else if(data.children?.isNotEmpty() == true){
+            } else if (data.children?.isNotEmpty() == true) {
                 data.isChecked = recursionCheckState(data.children)
                 allChildrenChecked = data.isChecked && allChildrenChecked
-            }else{
+            } else {
                 data.isChecked = false
                 allChildrenChecked = data.isChecked && allChildrenChecked
             }
@@ -188,14 +217,14 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
             inputManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
             inputManager.showSoftInput(et_search, 0)
         }
-        recyclerView.setOnTouchListener { _, _ ->
+        recyclerView_tree.setOnTouchListener { _, _ ->
             (inputManager as InputMethodManager).hideSoftInputFromWindow(et_search.windowToken, 0)
             if (et_search.text.isNullOrBlank()) {
                 searchBarMask.visibility = View.VISIBLE
             }
             false
         }
-        rv_search.setOnTouchListener { _, _ ->
+        recyclerView_tree_search.setOnTouchListener { _, _ ->
             (inputManager as InputMethodManager).hideSoftInputFromWindow(et_search.windowToken, 0)
             false
         }
@@ -216,21 +245,19 @@ abstract class BaseMultiTreeActivity<T : IBaseTree<T>> : Activity() {
 
     private fun filterData() {
         if (et_search.text.isNullOrBlank()) {
-            recyclerView.visibility = View.VISIBLE
-            rv_search.visibility = View.GONE
-            treeAdapter.dataList = dataList
-            treeAdapter.notifyDataSetChanged()
+            recyclerView_tree.visibility = View.VISIBLE
+            recyclerView_tree_search.visibility = View.GONE
+            mTreeAdapter?.dataList = dataList
+            mTreeAdapter?.notifyDataSetChanged()
         } else {
-            recyclerView.visibility = View.GONE
-            rv_search.visibility = View.VISIBLE
+            recyclerView_tree.visibility = View.GONE
+            recyclerView_tree_search.visibility = View.VISIBLE
             val dataList = list.filter { data -> TreeDealUtil.isFilter(et_search.text.trim().toString(), data) }
-            listAdapter.dataList = dataList as ArrayList<T>
-            listAdapter.notifyDataSetChanged()
+            mListAdapter?.dataList = dataList as ArrayList<T>
+            mListAdapter?.notifyDataSetChanged()
         }
     }
 
-    open fun initParams() {
-    }
 }
 
 

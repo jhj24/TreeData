@@ -12,7 +12,6 @@ import java.util.*
 abstract class BaseMultiListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolder> : RecyclerView.Adapter<H>() {
     var dataList: ArrayList<T> = arrayListOf()
 
-
     override fun getItemCount(): Int {
         return dataList.size
     }
@@ -28,9 +27,6 @@ abstract class BaseMultiListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolde
         return onCreateItemHolder(parent, viewType)
     }
 
-    abstract fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): H
-    abstract fun onBindItemHolder(holder: H, data: T, position: Int)
-
     /**
      * 对外公开方法，设置itemView点击时间
      */
@@ -41,4 +37,9 @@ abstract class BaseMultiListAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolde
             notifyItemRangeChanged(position, 1)
         }
     }
+
+
+    abstract fun onCreateItemHolder(parent: ViewGroup, viewType: Int): H
+    abstract fun onBindItemHolder(holder: H, data: T, position: Int)
+
 }

@@ -30,7 +30,7 @@ class CommonListAdapter<T : IBaseTree<T>> : BaseSingleListAdapter<T, CommonListA
     }
 
 
-    override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
+    override fun onCreateItemHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent?.context)
         return ItemViewHolder(inflater.inflate(R.layout.layout_single_tree_node, parent, false))
     }

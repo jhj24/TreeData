@@ -21,8 +21,8 @@ class ChannelTreeAdapter<T : IBaseTree<T>>(private val cont: Context) : BaseSing
     override val reminder: String
         get() = "没有数据"
 
-    override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
-        val inflater = LayoutInflater.from(parent?.context)
+    override fun onCreateItemHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
         return if (viewType == 1) {
             ItemViewHolder(inflater.inflate(R.layout.layout_single_tree_root, parent, false))
         } else {
@@ -31,6 +31,7 @@ class ChannelTreeAdapter<T : IBaseTree<T>>(private val cont: Context) : BaseSing
     }
 
     override fun onBindItemHolder(holder: ItemViewHolder, data: T, position: Int) {
+        val dp10 = (context.resources.displayMetrics.density * 10).toInt()
         holder.itemView?.let {
             val paddingLeft = dp10 + dataList[position].itemLevels * 2 * dp10
             it.list_item.setPadding(paddingLeft, dp10, dp10, dp10)
@@ -50,9 +51,6 @@ class ChannelTreeAdapter<T : IBaseTree<T>>(private val cont: Context) : BaseSing
             }
         }
     }
-
-
-
 
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -32,6 +32,7 @@ class MultiTreeAdapter(private val cont: Context) : BaseMultiTreeAdapter<StaffTr
     }
 
     override fun onBindItemHolder(holder: ItemViewHolder, data: StaffTreeBean, position: Int) {
+        val dp10 = (context.resources.displayMetrics.density * 10).toInt()
         with(holder.itemView) {
             tv_name.text = data.name
             if (selectedItem?.name == data.name && selectedItem?.id == data.id) {

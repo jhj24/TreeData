@@ -18,12 +18,7 @@ abstract class BaseMultiTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolde
     abstract val reminder: String
 
     var dataList: ArrayList<T> = arrayListOf()
-    lateinit var list: ArrayList<T>
     var selectedItem: T? = null
-
-    val dp10: Int
-        get() = (context.resources.displayMetrics.density * 10 + 0.5).toInt()
-
 
     override fun getItemViewType(position: Int): Int {
         return if (dataList[position].isRoot) {
@@ -46,10 +41,6 @@ abstract class BaseMultiTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolde
             onCreateItemHolder(parent, viewType)
 
 
-    abstract fun onCreateItemHolder(parent: ViewGroup, viewType: Int): H
-    abstract fun onBindItemHolder(holder: H, data: T, position: Int)
-
-
     fun itemViewOnClick(data: T) {
         if (!data.isRoot) {
             checkboxOnClick(data)
@@ -62,7 +53,9 @@ abstract class BaseMultiTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolde
                     notifyDataSetChanged()
                 } else {
                     val position = dataList.indexOf(data)
-                    TreeDealUtil.sort(data.children)
+                    if (context is BaseMultiTreeActivity<*> && (context as BaseMultiTreeActivity<*>).isSort) {
+                        TreeDealUtil.sort(data.children)
+                    }
                     setChildrenLevels(data)
                     dataList.addAll(position + 1, data.children)
                     notifyItemRangeInserted(position + 1, data.children.size)
@@ -128,4 +121,8 @@ abstract class BaseMultiTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHolde
             data.itemLevels = bean.itemLevels + 1
         }
     }
+
+
+    abstract fun onCreateItemHolder(parent: ViewGroup, viewType: Int): H
+    abstract fun onBindItemHolder(holder: H, data: T, position: Int)
 }

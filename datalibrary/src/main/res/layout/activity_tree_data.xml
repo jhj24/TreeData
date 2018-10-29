@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fafafa"
@@ -19,28 +18,28 @@
         android:orientation="vertical" />
 
     <include
-        android:id="@+id/layout_search"
-        layout="@layout/layout_search_input_bar" />
+        android:id="@+id/layout_tree_search"
+        layout="@layout/layout_tree_search_bar" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/recyclerView_tree"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_search"
+            android:id="@+id/recyclerView_tree_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/tv_load"
+            android:id="@+id/tv_tree_load"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/bt_reload"
+            android:layout_above="@+id/bt_tree_reload"
             android:layout_centerHorizontal="true"
             android:layout_margin="25dp"
             android:padding="5dp"
@@ -49,7 +48,7 @@
             android:visibility="gone" />
 
         <Button
-            android:id="@+id/bt_reload"
+            android:id="@+id/bt_tree_reload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"

@@ -8,6 +8,7 @@ import com.jhj.datalibrary.interfaces.OnCustomTopbarListener
 import com.jhj.datalibrary.tree.multi.BaseMultiListAdapter
 import com.jhj.datalibrary.tree.multi.BaseMultiTreeActivity
 import com.jhj.datalibrary.tree.multi.BaseMultiTreeAdapter
+import com.jhj.treedata.LineItemDecoration
 import com.jhj.treedata.R
 import com.jhj.treedata.TreeDataUtil
 import com.jhj.treedata.bean.StaffBean
@@ -21,11 +22,14 @@ import kotlinx.android.synthetic.main.layout_top_bar.view.*
  */
 class MultiTreeActivity : BaseMultiTreeActivity<StaffTreeBean>() {
 
-    override val adapter: BaseMultiTreeAdapter<StaffTreeBean, out RecyclerView.ViewHolder>
+    override val treeAdapter: BaseMultiTreeAdapter<StaffTreeBean, out RecyclerView.ViewHolder>
         get() = MultiTreeAdapter(this)
-    override val mAdapter: BaseMultiListAdapter<StaffTreeBean, out RecyclerView.ViewHolder>
+    override val listAdapter: BaseMultiListAdapter<StaffTreeBean, out RecyclerView.ViewHolder>
         get() = MultiListAdapter()
-
+    override val isSort: Boolean
+        get() = false
+    override val itemDecoration: RecyclerView.ItemDecoration?
+        get() = LineItemDecoration()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

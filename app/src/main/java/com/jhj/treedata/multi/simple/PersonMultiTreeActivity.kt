@@ -8,6 +8,7 @@ import com.jhj.datalibrary.interfaces.OnCustomTopbarListener
 import com.jhj.datalibrary.tree.multi.BaseMultiListAdapter
 import com.jhj.datalibrary.tree.multi.BaseMultiTreeActivity
 import com.jhj.datalibrary.tree.multi.BaseMultiTreeAdapter
+import com.jhj.treedata.LineItemDecoration
 import com.jhj.treedata.R
 import com.jhj.treedata.TreeDataUtil
 import com.jhj.treedata.bean.PersonalTreeBean
@@ -19,9 +20,9 @@ import kotlinx.android.synthetic.main.layout_top_bar.view.*
  */
 class PersonMultiTreeActivity : BaseMultiTreeActivity<PersonalTreeBean>() {
 
-    override val adapter: BaseMultiTreeAdapter<PersonalTreeBean, out RecyclerView.ViewHolder>
+    override val treeAdapter: BaseMultiTreeAdapter<PersonalTreeBean, out RecyclerView.ViewHolder>
         get() = PersonMultiTreeAdapter(this)
-    override val mAdapter: BaseMultiListAdapter<PersonalTreeBean, out RecyclerView.ViewHolder>
+    override val listAdapter: BaseMultiListAdapter<PersonalTreeBean, out RecyclerView.ViewHolder>
         get() = PersonMultiListAdapter()
 
 

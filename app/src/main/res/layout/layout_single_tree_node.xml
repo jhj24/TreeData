@@ -48,8 +48,4 @@
             android:background="@drawable/icon_choice_no" />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#d9d7d5" />
 </LinearLayout>

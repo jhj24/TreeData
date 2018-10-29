@@ -28,6 +28,6 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.google.code.gson:gson:2.8.2'
-    implementation 'com.github.jhj24:TreeData:v.0.8.8'
-   // implementation project(':datalibrary')
+    // implementation 'com.github.jhj24:TreeData:v.0.8.8'
+    implementation project(':datalibrary')
 }

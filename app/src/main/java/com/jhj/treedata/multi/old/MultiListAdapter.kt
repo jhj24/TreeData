@@ -13,8 +13,8 @@ import kotlinx.android.synthetic.main.layout_multi_tree_node.view.*
  * Created by jhj on 17-9-20.
  */
 class MultiListAdapter : BaseMultiListAdapter<StaffTreeBean, MultiListAdapter.ItemViewHolder>() {
-    override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
-        val inflater = LayoutInflater.from(parent?.context)
+    override fun onCreateItemHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
         return ItemViewHolder(inflater.inflate(R.layout.layout_multi_tree_node, parent, false))
     }
 

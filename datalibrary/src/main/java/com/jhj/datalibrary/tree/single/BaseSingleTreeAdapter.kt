@@ -21,8 +21,7 @@ abstract class BaseSingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
     lateinit var list: ArrayList<T>
     var selectedItem: T? = null
 
-    val dp10: Int
-        get() = (context.resources.displayMetrics.density * 10 + 0.5).toInt()
+
 
 
     override fun getItemCount(): Int = dataList.size
@@ -50,7 +49,7 @@ abstract class BaseSingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
     }
 
     abstract fun onBindItemHolder(holder: H, data: T, position: Int)
-    abstract fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): H
+    abstract fun onCreateItemHolder(parent: ViewGroup, viewType: Int): H
 
     /**
      * 对外公开方法，设置itemView点击事件，（树型数据是打开，关闭还是选择）
@@ -65,7 +64,9 @@ abstract class BaseSingleTreeAdapter<T : IBaseTree<T>, H : RecyclerView.ViewHold
                     dataList.removeAll(children)
                     notifyDataSetChanged()
                 } else {
-                    TreeDealUtil.sort(bean.children)
+                    if (context is BaseSingleTreeActivity<*> && (context as BaseSingleTreeActivity<*>).isSort) {
+                        TreeDealUtil.sort(bean.children)
+                    }
                     setChildrenLevels(bean)
                     dataList.addAll(position + 1, bean.children)
                     notifyItemRangeInserted(position + 1, bean.children.size)

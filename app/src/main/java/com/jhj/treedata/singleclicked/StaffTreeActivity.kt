@@ -9,6 +9,7 @@ import com.jhj.datalibrary.interfaces.OnCustomTopbarListener
 import com.jhj.datalibrary.tree.single.BaseSingleListAdapter
 import com.jhj.datalibrary.tree.single.BaseSingleTreeActivity
 import com.jhj.datalibrary.tree.single.BaseSingleTreeAdapter
+import com.jhj.treedata.LineItemDecoration
 import com.jhj.treedata.R
 import com.jhj.treedata.TreeDataUtil
 import com.jhj.treedata.bean.StaffBean
@@ -25,11 +26,13 @@ import java.util.ArrayList
  */
 
 class StaffTreeActivity : BaseSingleTreeActivity<StaffTreeBean>() {
-
-    override val adapter: BaseSingleTreeAdapter<StaffTreeBean, out RecyclerView.ViewHolder>
+    override val treeAdapter: BaseSingleTreeAdapter<StaffTreeBean, out RecyclerView.ViewHolder>
         get() = StaffTreeAdapter(this)
-    override val mAdapter: BaseSingleListAdapter<StaffTreeBean, out RecyclerView.ViewHolder>
+    override val listAdapter: BaseSingleListAdapter<StaffTreeBean, out RecyclerView.ViewHolder>
         get() = StaffTreeListAdapter(this)
+    override val itemDecoration: RecyclerView.ItemDecoration?
+        get() = LineItemDecoration()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

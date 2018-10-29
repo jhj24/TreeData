@@ -1,4 +1,4 @@
-package com.jhj.treedata.singleselected.person
+package com.jhj.treedata.single.select.slim
 
 import com.jhj.datalibrary.holder.ViewInjector
 import com.jhj.datalibrary.tree.single.SlimSingleListAdapter

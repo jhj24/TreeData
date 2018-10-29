@@ -28,6 +28,8 @@ class MultiTreeActivity : BaseMultiTreeActivity<StaffTreeBean>() {
         get() = MultiListAdapter()
     override val isSort: Boolean
         get() = false
+    override val isSearch: Boolean
+        get() = false
     override val itemDecoration: RecyclerView.ItemDecoration?
         get() = LineItemDecoration()
 
@@ -38,7 +40,7 @@ class MultiTreeActivity : BaseMultiTreeActivity<StaffTreeBean>() {
         val staff = TreeDataUtil.getStaffTree(this)
         val staffTree = parseTreeData(staff, list)
         initDataList(staffTree)
-        
+
         initTopBar(R.layout.layout_top_bar, object : OnCustomTopbarListener {
             override fun onLayout(view: View) {
                 view.topBar_back.setOnClickListener { finish() }
@@ -57,8 +59,6 @@ class MultiTreeActivity : BaseMultiTreeActivity<StaffTreeBean>() {
             }
         })
     }
-  
-    
 
 
     private fun parseTreeData(dataList: List<StaffBean>, dataTree: java.util.ArrayList<StaffTreeBean>): java.util.ArrayList<StaffTreeBean> {

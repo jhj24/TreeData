@@ -1,4 +1,4 @@
-package com.jhj.treedata.singleselected
+package com.jhj.treedata.single.select.old
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

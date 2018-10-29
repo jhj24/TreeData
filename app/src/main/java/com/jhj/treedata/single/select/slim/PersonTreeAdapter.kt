@@ -1,4 +1,4 @@
-package com.jhj.treedata.singleselected.person
+package com.jhj.treedata.single.select.slim
 
 import android.content.Context
 import android.view.View

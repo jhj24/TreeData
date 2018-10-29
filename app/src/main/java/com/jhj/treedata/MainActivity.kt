@@ -11,9 +11,9 @@ import com.jhj.treedata.bean.PersonalTreeBean
 import com.jhj.treedata.bean.StaffTreeBean
 import com.jhj.treedata.multi.old.MultiTreeActivity
 import com.jhj.treedata.multi.simple.PersonMultiTreeActivity
-import com.jhj.treedata.singleclicked.StaffTreeActivity
-import com.jhj.treedata.singleselected.channel.ChannelTreeActivity
-import com.jhj.treedata.singleselected.person.PersonTreeActivity
+import com.jhj.treedata.single.click.StaffTreeActivity
+import com.jhj.treedata.single.select.old.ChannelTreeActivity
+import com.jhj.treedata.single.select.slim.PersonTreeActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

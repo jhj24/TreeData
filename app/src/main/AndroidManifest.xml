@@ -16,11 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".singleselected.person.PersonTreeActivity" />
+        <activity android:name="com.jhj.treedata.single.select.slim.PersonTreeActivity" />
         <activity android:name=".multi.old.MultiTreeActivity" />
-        <activity android:name=".singleselected.channel.ChannelTreeActivity" />
+        <activity android:name="com.jhj.treedata.single.select.old.ChannelTreeActivity" />
         <activity android:name=".multi.simple.PersonMultiTreeActivity" />
-        <activity android:name=".singleclicked.StaffTreeActivity" />
+        <activity android:name="com.jhj.treedata.single.click.StaffTreeActivity" />
     </application>
 
 </manifest>

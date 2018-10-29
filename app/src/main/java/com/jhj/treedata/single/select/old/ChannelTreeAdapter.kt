@@ -1,4 +1,4 @@
-package com.jhj.treedata.singleselected.channel
+package com.jhj.treedata.single.select.old
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView

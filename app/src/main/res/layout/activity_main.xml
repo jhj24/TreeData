@@ -6,37 +6,70 @@
     android:orientation="vertical"
     tools:context="com.jhj.treedata.MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="没简化后的树型Adapter\n非理想化数据、不排序、不可搜索" />
+
     <Button
         android:id="@+id/btn_one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="多选，带选择框!" />
+        android:text="多选一" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="简化后的树型Adapter\n自定义标题、理想化数据" />
 
     <Button
         android:id="@+id/btn_two"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="多选，带选择框!(使用简化后的Adapter)" />
+        android:text="多选二" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="非简化后的树型Adapter\n自定义标题、理想化数据、自定义搜索框" />
 
     <Button
         android:id="@+id/btn_three"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="单选，带选择框!(自定义搜索框)" />
+        android:text="单选一" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="简化后的树型Adapter\n自定义标题、理想化数据" />
 
     <Button
         android:id="@+id/btn_four"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="单选，带选择框!(使用简化后的Adapter。自定义分割线、设置item的左边距)" />
+        android:text="单选二" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="简化后的树型Adapter\n无标题、非理想化数据、自定义分割线" />
 
     <Button
         android:id="@+id/btn_five"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="单选，点击确认!（数据格式理想化、点击跳转）" />
-
+        android:text="单击事件" />
 
 </LinearLayout>

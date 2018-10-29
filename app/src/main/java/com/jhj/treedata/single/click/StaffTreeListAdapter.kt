@@ -1,4 +1,4 @@
-package com.jhj.treedata.singleclicked
+package com.jhj.treedata.single.click
 
 import android.content.Context
 import android.content.Intent

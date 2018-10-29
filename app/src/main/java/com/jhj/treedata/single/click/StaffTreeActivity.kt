@@ -1,8 +1,6 @@
-package com.jhj.treedata.singleclicked
+package com.jhj.treedata.single.click
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.support.annotation.CallSuper
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.jhj.datalibrary.interfaces.OnCustomTopbarListener
@@ -14,7 +12,6 @@ import com.jhj.treedata.R
 import com.jhj.treedata.TreeDataUtil
 import com.jhj.treedata.bean.StaffBean
 import com.jhj.treedata.bean.StaffTreeBean
-import kotlinx.android.synthetic.main.layout_search_bar.view.*
 import kotlinx.android.synthetic.main.layout_top_bar1.view.*
 import java.util.ArrayList
 
@@ -36,14 +33,14 @@ class StaffTreeActivity : BaseSingleTreeActivity<StaffTreeBean>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initTopBar(R.layout.layout_top_bar1, object : OnCustomTopbarListener {
+        /*initTopBar(R.layout.layout_top_bar1, object : OnCustomTopbarListener {
             override fun onLayout(view: View) {
                 view.topBar_title.text = "点击事件"
                 view.topBar_back.setOnClickListener { v ->
                     finish()
                 }
             }
-        })
+        })*/
 
 
         val list = ArrayList<StaffTreeBean>()
@@ -84,5 +81,6 @@ class StaffTreeActivity : BaseSingleTreeActivity<StaffTreeBean>() {
         }
         return dataTree
     }
+
 
 }

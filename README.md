@@ -39,6 +39,7 @@ fun getSelectedItems()
 
 点击时，需要运行的方法
 ```
+//item点击事件
 fun itemViewOnClick(bean: T)
 
 //多选、单击CheckBox时
@@ -49,15 +50,20 @@ fun checkboxOnClick(data: T)
 
 当Adapter继承SimpleTree时，此时设置好了分割线以及不同级别距左边的内边距，不满足时可以修改
 
+#### SlimAdapter
+
 - 设置分割线样式
 ```
-setDivideLineAttribute(line_divide: View) {}
+override fun setDivideLineAttribute(line_tree_divide: View?) {
+     super.setDivideLineAttribute(line_tree_divide)
+     line_tree_divide?.setBackgroundColor(Color.RED)
+     line_tree_divide?.layoutParams?.height = 2
+}
 ```
 - 设置不同level距左边边距(在初始化方法中调用)
 ```
-init {
-    extraPaddingLeft = 100
-}
+ override val extraPaddingLeft: Int
+        get() = 45
 ```
 ### 4. 界面效果
 <img src="https://github.com/jhj24/TreeData/blob/master/app/screenshot/multi_selected.gif" width="30%" height="30%" alt=""/><img src="https://github.com/jhj24/TreeData/blob/master/app/screenshot/single_selected.gif" width="30%" height="30%" alt=""/><img src="https://github.com/jhj24/TreeData/blob/master/app/screenshot/single_clicked.gif" width="30%" height="30%" alt=""/>

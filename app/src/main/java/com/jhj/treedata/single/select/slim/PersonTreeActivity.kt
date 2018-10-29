@@ -27,6 +27,7 @@ class PersonTreeActivity : BaseSingleTreeActivity<PersonalTreeBean>() {
     override val listAdapter: BaseSingleListAdapter<PersonalTreeBean, out RecyclerView.ViewHolder>
         get() = PersonListAdapter()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val datalist = TreeDataUtil.getAreaList(this)

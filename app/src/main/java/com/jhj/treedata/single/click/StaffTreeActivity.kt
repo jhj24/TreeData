@@ -27,8 +27,6 @@ class StaffTreeActivity : BaseSingleTreeActivity<StaffTreeBean>() {
         get() = StaffTreeAdapter(this)
     override val listAdapter: BaseSingleListAdapter<StaffTreeBean, out RecyclerView.ViewHolder>
         get() = StaffTreeListAdapter(this)
-    override val itemDecoration: RecyclerView.ItemDecoration?
-        get() = LineItemDecoration()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="简化后的树型Adapter\n自定义标题、理想化数据" />
+        android:text="简化后的树型Adapter\n自定义标题、理想化数据、自定义二级目录后的边距" />
 
     <Button
         android:id="@+id/btn_four"

@@ -19,6 +19,8 @@ class PersonTreeAdapter(private val cont: Context) : SlimSingleTreeAdapter<Perso
     override val reminder: String
         get() = "就是没数据"
 
+    override val extraPaddingLeft: Int
+        get() = 45
 
     override fun onCreateLayoutRes(viewType: Int): Int {
         return if (viewType == 1) {
